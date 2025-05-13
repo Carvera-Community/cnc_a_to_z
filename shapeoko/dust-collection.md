@@ -24,9 +24,9 @@ The regular setup with the four leveling feet works fine, but is susceptible to 
 * the MDF bed can sag in the middle, especially on larger models \(XL and XXL\). Usually not by much, but enough to be a nuisance. Just adding a custom support point in the middle underneath the bed/rail addresses this weakness, easy enough.
 * the other point that made me consider removing the feet is that I am using the tape & glue workholding method a lot, it involves pushing the stock firmly onto the wasteboard for a few seconds, and it did not feel right to be pushing in the middle of the bed, exactly where the natural sag already happens. As many others have done, I removed the four feet. My solution was to install the Shapeoko on top of a thick piece of MDF \(with holes to accommodate the protruding nuts under the steel plates\), with a narrower and thinner piece of MDF inserted between the plates on top of that, plus a thin sheet of roofing felt to provide a little damping. As long as the bench underneath is reasonably level, getting rid of the feet is not a problem, and this will provide a lot of additional rigidity: I can now push on the bed as hard as I need to. 
 
-![](.gitbook/assets/setup_thick_bed.jpeg)
+![](.gitbook/assets/shapeoko/setup_thick_bed.jpeg)
 
-\(the picture shows an aluminium bed, which also helps the rigidity, but that is a story for the [HW upgrades](upgrading-the-machine.md#bed-upgrade) section\)
+\(the picture shows an aluminium bed, which also helps the rigidity, but that is a story for the [HW upgrades](shapeoko/upgrading-the-machine.md#bed-upgrade) section\)
 
 ## Dust collection
 
@@ -43,7 +43,7 @@ Using a dust shoe attached to the X/Z carriage is the common solution. They come
 
 * the dust shoe can be attached to the router \(or elsewhere on the moving part of the Z-plate\). In this case, since it will move up and down with Z movements during the cut, one needs to take that into account, by leaving enough clearance under the dust shoe and ideally having long and flexible bristles, so that when the router will be cutting at maximum depth, the dust shoe won't collide with the surface of the stock. Here's a picture of Carbide3D's "Sweepy" dust shoe:
 
-![](.gitbook/assets/sweepy.jpeg)
+![](.gitbook/assets/shapeoko/sweepy.jpeg)
 
 {% hint style="info" %}
 The main benefit of a router-mounted dust shoe is that it can be quite compact, and it will not reduce the X travel. The main drawback is that it does not work well when cutting deep jobs, as  the required clearance under the bristles will make the suction efficiency drop significantly
@@ -51,7 +51,7 @@ The main benefit of a router-mounted dust shoe is that it can be quite compact, 
 
 * or the dust shoe can be attached to the fixed part of the carriage, and then adjusted and locked with the bristles against the stock surface \(you will still have to watch out for possible collision with clamps, or use low-profile clamps that will slide right under the bristles\). They are called "Z-independent" dust shoes, here's a picture of such a dust shoe installed on my machine:
 
-![](.gitbook/assets/setup_suckit_dustshoe.png)
+![](.gitbook/assets/shapeoko/setup_suckit_dustshoe.png)
 
 {% hint style="info" %}
 The main benefit of a Z-independent dust shoe is that suction is optimal \(since the bristles can be adjusted to be flush against the stock surface\), and there is no need to worry about cutting depths. The main drawback is that the side arms holding it usually reduce the X travel slightly, and the dust shoe is generally a bit bulky, with risks of collision with clamps.
@@ -74,14 +74,14 @@ While it is possible to connect a shop vacuum directly to the dust shoe, it turn
 
 A common solution is to buy or build a "cyclone" dust separator: 
 
-![](.gitbook/assets/page_160_800.png)
+![](.gitbook/assets/shapeoko/page_160_800.png)
 
 * the shop vacuum is plugged on top, while the hose from the dust shoe is connected on the left.
 * the suction from the shop vacuum and the shape of the cyclone dust separator are such that an outer vortex \(blue\) and inner vortex \(teal\) are created, so the chips/dust contained in the incoming air flow are pushed against the walls of the cyclone by centrifugal force, and then slide down under the effect of gravity to the bottom where they can be collected using any kind of tank.
 
 I chose to buy a cheap ~4 gallons/15L ash collector tank at my local hardware store, and bolted the cyclone onto that \(with a little glue around the base for sealing\):
 
-![](.gitbook/assets/cyclone_and_container.png)
+![](.gitbook/assets/shapeoko/cyclone_and_container.png)
 
 Surprisingly little dust/debris gets past this and into the shop vac, so much so that I hardly ever change the shop vacuum filter itself now
 
@@ -126,13 +126,13 @@ While you are designing your enclosure, why not plan to add a custom power contr
 
 Mine is a crude version made from MDF parts, it does not look fancy but does the job perfectly. Beyond implementing the emergency stop button, having all power switches in a single place and with a visual cue as to what is currently turned on is very convenient:
 
-![](.gitbook/assets/emergency_stop.png)
+![](.gitbook/assets/shapeoko/emergency_stop.png)
 
 ## Control pad
 
 If you are using a G-code sender that supports keyboard shortcuts, it can be convenient to use a remote keypad \(wireless or wired\) for those shortcuts, so that the jogging/probing commands can be used without looking at the computer screen. Mine is wireless and costs about 20$, I printed custom labels for the actions I use most, and then mapped the underlying keys to the associated actions in my G-code sender.
 
-![](.gitbook/assets/upgrades_jog_pendant.png)
+![](.gitbook/assets/shapeoko/upgrades_jog_pendant.png)
 
 You can also go crazy and buy a fancy keypad with programmable OLED displays on each key, and dynamically switch between different keymap configurations.
 
@@ -142,7 +142,7 @@ While a dust collection system works great for cutting wood & plastics, cutting 
 
 The usual solution is to use an air jet to push the chips away from the cut. A mist coolant spray system is a useful addition to the shapeoko setup when cutting metal. In the picture below, the orange tube goes to a \(heavy duty\) air compressor, and the transparent tube goes into a bottle of lubrication liquid. The lubricant gets mixed with the compressed air, and the spray is aimed at the cutting point:
 
-![](.gitbook/assets/setup_locline.png)
+![](.gitbook/assets/shapeoko/setup_locline.png)
 
 However this means that metal chips will be flying all over the work area, so it can be useful to add specific protections.
 
@@ -150,13 +150,13 @@ Some kind of **filter** on top of the router: the picture below shows a quick an
 
 A **chip guard** can be installed to prevent chips from flying upwards and getting stuck in the Z-axis or router, while still allowing the air jet to be aimed at the cut:
 
-![](.gitbook/assets/setup_chipguard.png)
+![](.gitbook/assets/shapeoko/setup_chipguard.png)
 
 ## Side walls
 
 Protection walls can be installed on the sides/back of the machine, to at least keep the chips contained within the work area, when not using a dust shoe:
 
-![](.gitbook/assets/setup_protectionwalls.jpeg)
+![](.gitbook/assets/shapeoko/setup_protectionwalls.jpeg)
 
 Mine are just made from 0.1'' thick hard foam strips glued to aluminium corner guards, bolted onto the bed. 
 
@@ -166,7 +166,7 @@ With an MDF bed, another idea is to cut slots on the sides, making it very easy 
 
 They do a good job of containing the chips \(but if you look closely enough at the picture below, you will see that some chips ended up on the left rail anyway\) :
 
-![](.gitbook/assets/setup_protectionwalls_messy.jpeg)
+![](.gitbook/assets/shapeoko/setup_protectionwalls_messy.jpeg)
 
 ## GRBL settings
 

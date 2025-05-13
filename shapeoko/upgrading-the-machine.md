@@ -6,11 +6,11 @@ There are many possible hardware upgrades. Some are cheap, some are definitely e
 
 ## Tool length offset probe
 
-This is a device to simplify [multi-tool jobs](first-cuts.md#running-a-multi-tool-job). It will automate the process of re-measuring tool length and adjusting Z0 value accordingly, upon each tool change.
+This is a device to simplify [multi-tool jobs](shapeoko/first-cuts.md#running-a-multi-tool-job). It will automate the process of re-measuring tool length and adjusting Z0 value accordingly, upon each tool change.
 
 Carbide3D's Nomad machine comes with a built-in tool offset length probe. On the Shapeoko, it's not part of the defaut configuration, but Carbide3D sells the "**BitSetter**" device as an optional add-on that attaches to the front plate:
 
-![](.gitbook/assets/bitsetter.png)
+![](.gitbook/assets/shapeoko/bitsetter.png)
 
 The device must be used in conjunction with an associated workflow in the G-code sender, that will launch a probing of tool length right after each tool change.
 
@@ -20,7 +20,7 @@ This device is connected to the "Probe" input of the controller \(yes, the same 
 
 The probing works something like this:
 
-![](.gitbook/assets/page_278_800.png)
+![](.gitbook/assets/shapeoko/page_278_800.png)
 
 * the user initially sets the zeros normally, which sets Z0.
 * the initial probing sequence moves the router over the predefined X/Y position of the tool length probe, then slowly moves the router down until the tip of the endmill pushes the button enough to trigger the probe: at that point, the machine makes a note of the current absolute Z value \(Z1 abs, arbitrarily shown as -100mm in the example above\)
@@ -38,9 +38,9 @@ The standard limit switches are fine, but they have mechanical parts that can we
 
 **Contactless/proximity switches** trigger when a metal object comes within a certain distance of their surface. Since there is no mechanical contact with the moving part, there is no mechanical wearout, and they also happen to be more precise. Here's an example of a proximity switch for the Z-axis:
 
-![](.gitbook/assets/upgrades_proximity_switch.png)
+![](.gitbook/assets/shapeoko/upgrades_proximity_switch.png)
 
-They can be used as an \(almost\) drop-in replacement for the original switches, the only difference is that \(depending on their technology\) they may need an additional lead for power supply, connected to one power pin of the controller board \(typically, the 5V pin on the Arduino ISP header, see [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#controller-board) for details\).
+They can be used as an \(almost\) drop-in replacement for the original switches, the only difference is that \(depending on their technology\) they may need an additional lead for power supply, connected to one power pin of the controller board \(typically, the 5V pin on the Arduino ISP header, see [Anatomy of a Shapeoko](shapeoko/anatomy-of-a-shapeoko.md#controller-board) for details\).
 
 ## X/Z axis upgrade
 
@@ -56,13 +56,13 @@ One noticeable difference between a ball screw driven X/Z axis and a belt & spri
 
 The natural upgrade path is to go for Carbide3D's **Z-plus** option, shown here :
 
-![](.gitbook/assets/z_plus.jpeg)
+![](.gitbook/assets/shapeoko/z_plus.jpeg)
 
 The linear rails and ballscrew design make for a robust solution that will be able to handle aggressive feeds and speeds \(within the limits of what the V-wheels will allow\)
 
 Or for the most demanding jobs you could upgrade to the HD \(Heavy Duty\) Z axis. Here's an example of an early version of the HDZ installed on my machine:
 
-![](.gitbook/assets/hdz.png)
+![](.gitbook/assets/shapeoko/hdz.png)
 
 {% hint style="warning" %}
 Note that different Z axes have different travel and width, so they require tuning the GRBL parameters accordingly. If using Carbide Motion, this is done through the setup menu. If using other senders, parameters $132 \(max Z travel\) and $130 \(max X travel\) should be tuned manually to match the setup.
@@ -77,7 +77,7 @@ There are two main reasons to replace the original MDF bed:
 
 While the T-tracks bed upgrade \(that comes as an alternative to the "sea of holes" wasteboard\) typically still uses MDF strips, upgrading to an aluminium bed is a good albeit expensive way to improve machine rigidity as well as have a more "weather-insensitive" machine \(MDF tends to absorb humidity, which _may_ lead to some warping/swelling over time\)
 
-![](.gitbook/assets/upgrades_aluminum_bed.png)
+![](.gitbook/assets/shapeoko/upgrades_aluminum_bed.png)
 
 This one is 12mm / ~0.5'', the one on Carbide 3D's store is 0.5'' thick too.
 
@@ -91,11 +91,11 @@ This is probably the cheapest upgrade: replacing the original GT2 belts with rei
 
 Here's a section view of steel-core belts showing the embedded steel wires:
 
-![](.gitbook/assets/upgrades_steel_core_belt.png)
+![](.gitbook/assets/shapeoko/upgrades_steel_core_belt.png)
 
 Buying several meters of steel-core belts is cheap, will serve as a provision in case the original belts snap, and replacing the belts is very easy \(since it does not involve disassembling anything else other than the belt tensioners\) so that upgrade is a no brainer if you feel you can benefit from the increased robustness, and possibly from the ability to push the max speed and acceleration beyond the default settings:
 
-![](.gitbook/assets/upgrades_steel_core_belt_mounted.png)
+![](.gitbook/assets/shapeoko/upgrades_steel_core_belt_mounted.png)
 
 It has been reported that the belt stretch factor for those steel-core belts is about half as much as with regular belts, so they may also bring some benefits for precision work.
 
@@ -123,31 +123,31 @@ The Shapeoko uses a trim router by default for cost/convenience reasons, but mos
 
 Here's an overview of the key points to consider for the upgrade:
 
-![](.gitbook/assets/page_287_800.png)
+![](.gitbook/assets/shapeoko/page_287_800.png)
 
 **1\)** The Z axis capability. Spindles can be HEAVY, especially 2.2kW ones. The stock Z axis will not be able to cope with the heavier models, but should be fine for the lighter \(800W\) ones. The HDZ and Z-plus axis, with their ballscrew design, will handle all models.
 
 For reference, here's the relative size of a 2.2kW spindle, next to the Makita trim router:
 
-![](.gitbook/assets/spindle_size_comparison.jpeg)
+![](.gitbook/assets/shapeoko/spindle_size_comparison.jpeg)
 
 **2\)** The router mount diameter: chances are, the stock router mount diameter will not match the diameter of the selected spindle. Spindle kits often include a mount, but it's usually very bad quality and not easily adaptable to the Shapeoko's Z axis. You are probably better off buying a spindle mount from Carbide3D's store. Here's a view of a 80mm one for reference:
 
-![](.gitbook/assets/spindle_mount.jpeg)
+![](.gitbook/assets/shapeoko/spindle_mount.jpeg)
 
 **3\)** Then there is the choice of the spindle itself. They come in two types: **air-cooled** and **water-cooled.** The former is easier to install, but noisier. The latter is extremely quiet, but requires one to install an external water-cooling system.
 
 **4\)** A "Variable Frequency Drive" \(**VFD**\) is required to power the spindle and control its speed. The wiring of the VFD depends on the model \(spoiler alert: chances are you will buy your spindle kit from China, documentation will be sub-par, but the community is here to sort it out\). In the example pic below, the green wire is the PWM signal from the Shapeoko, the black wire is the Ground signal, and the purple wire is just telling to VFD to force the rotation direction:
 
-![](.gitbook/assets/vfd_wiring.jpeg)
+![](.gitbook/assets/shapeoko/vfd_wiring.jpeg)
 
 Beyond that it's just a matter of connecting mains, and the four wires to the spindle \(1,2,3 and Earth, also called U,V,W and Earth\):
 
-![](.gitbook/assets/vfd_wiring0.jpeg)
+![](.gitbook/assets/shapeoko/vfd_wiring0.jpeg)
 
 Make sure the spindle's **ground/earth pin** is actually connected inside the spindle to the body:
 
-![](.gitbook/assets/spindle_pic2.jpeg)
+![](.gitbook/assets/shapeoko/spindle_pic2.jpeg)
 
 Sometimes it is left unconnected and then you are bound to get static build-up and possibly EMI issues
 
@@ -161,7 +161,7 @@ Huanyang VFD owners may find this discussion helpful : [https://community.carbid
 
 * one can use a large container as a tank, and install a **submersible pump** in it: 
 
-![](.gitbook/assets/spindle_cooling.jpeg)
+![](.gitbook/assets/shapeoko/spindle_cooling.jpeg)
 
 {% hint style="info" %}
 The container should be closed/sealed when operating, or dust/chips could find they way through the cooling system.
@@ -177,11 +177,11 @@ One should not use plain water as the coolant, the tubes are bound to become cov
 
 * or one can purchase a **closed-loop** cooling system:
 
-![](.gitbook/assets/cooling_system_griff.jpeg)
+![](.gitbook/assets/shapeoko/cooling_system_griff.jpeg)
 
 and install it on the machine:
 
-![](.gitbook/assets/cooling_system_griff2.jpeg)
+![](.gitbook/assets/shapeoko/cooling_system_griff2.jpeg)
 
 {% hint style="info" %}
 A section of the cooling loop should have fans, to keep the coolant temperature down.
@@ -229,7 +229,7 @@ If you are considering adding a laser to your Shapeoko setup, whatever you do pu
 
 It's tempting to leverage the X/Y capability of the Shapeoko, to move a laser module around and engrave/cut the surface of parts. A typical setup will look something like this:
 
-![](.gitbook/assets/page_297_800_redo.png)
+![](.gitbook/assets/shapeoko/page_297_800_redo.png)
 
 **1\)** The laser module is usually attached somewhere on the router mount, in such a way that it can be installed/removed easily, when switching back and forth between CNC operation and laser operation.
 
@@ -243,7 +243,7 @@ One might think that since the laser is always pointing down towards the materia
 
 Here's what my 4.8W laser setup looks like:
 
-![](.gitbook/assets/laser_setup.jpeg)
+![](.gitbook/assets/shapeoko/laser_setup.jpeg)
 
 **4\)** The laser is connected to a controller, that will usually:
 
@@ -253,7 +253,7 @@ Here's what my 4.8W laser setup looks like:
 
 Here's a picture of my controller \(from the J-Tech laser kit\):
 
-![](.gitbook/assets/laser_controller.jpeg)
+![](.gitbook/assets/shapeoko/laser_controller.jpeg)
 
 **5\)** The PWM signal driven by the Shapeoko controller will be used to modulate laser using G-code instructions. GRBL generates the PWM signal based on the requested spindle speed value, from 0V for 0 RPM, to 5V for the max RPM value configured in GRBL parameter $30. When using the Shapeoko in laser mode, the software generating the G-code will make use of that capability to control the laser power.
 

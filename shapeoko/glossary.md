@@ -4,11 +4,11 @@ This page contains a short definition of many usual terms used in the CNC world 
 
 ## \#
 
-**2D** : \(in terms of CAM\) Cuts are all made to the same depth along a single plane \(typically XY\) and may be described by a single monochrome \(b/w\) 2D drawing. Plasma cutters and lasercutters which are not doing engraving are limited to 2D, as are engraving machines which cut to only a single depth. The simplest form of CAM, any program should be able to create such a file. See [Toolpaths](toolpath-basics.md) section.
+**2D** : \(in terms of CAM\) Cuts are all made to the same depth along a single plane \(typically XY\) and may be described by a single monochrome \(b/w\) 2D drawing. Plasma cutters and lasercutters which are not doing engraving are limited to 2D, as are engraving machines which cut to only a single depth. The simplest form of CAM, any program should be able to create such a file. See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
-**2.5D** : \(in terms of CAM\) Cuts are all made in planes parallel to one another \(typically XY\), but may be made to different depths, any given area will have a flat bottom and the appearance will be like to a ziggurat or stepped pyramid, and may be described as a series of drawings each depicting a different depth or layer \(a series of onionskin drawings each stacked on top of the other\). Usually no more than two axes will move at once. Most programs are able to create files for cutting such shapes, usually by allowing one to define a given region, shape or path, and assigning to it a cut to a particular depth. See [Toolpaths](toolpath-basics.md) section.
+**2.5D** : \(in terms of CAM\) Cuts are all made in planes parallel to one another \(typically XY\), but may be made to different depths, any given area will have a flat bottom and the appearance will be like to a ziggurat or stepped pyramid, and may be described as a series of drawings each depicting a different depth or layer \(a series of onionskin drawings each stacked on top of the other\). Usually no more than two axes will move at once. Most programs are able to create files for cutting such shapes, usually by allowing one to define a given region, shape or path, and assigning to it a cut to a particular depth. See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
-**3D** : \(in terms of CAM\) Cuts can be made so as to describe an arbitrary 3D shape \(typically w/o overhangs\), and the cutter will need to move in all possible planes so as to make a smooth finish. On a 3-axis machines overhangs or carving fully in the round will require either special tooling or flip jigs \(or both\). When described as a drawing, a full 3D design would require a continuous variation in darkness, like to a photograph.Typically the domain of specialty CAD and CAM programs, they require the depiction of a form in full 3D, usually using a 3D-specific file format such as .stl. See [Toolpaths](toolpath-basics.md) section.
+**3D** : \(in terms of CAM\) Cuts can be made so as to describe an arbitrary 3D shape \(typically w/o overhangs\), and the cutter will need to move in all possible planes so as to make a smooth finish. On a 3-axis machines overhangs or carving fully in the round will require either special tooling or flip jigs \(or both\). When described as a drawing, a full 3D design would require a continuous variation in darkness, like to a photograph.Typically the domain of specialty CAD and CAM programs, they require the depiction of a form in full 3D, usually using a 3D-specific file format such as .stl. See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
 **6s and 9s** :\(in terms of machining\) Description of the preferred shape of chips cut by the machine.
 
@@ -21,7 +21,7 @@ This page contains a short definition of many usual terms used in the CNC world 
 * G90 command places the part program into absolute coordinate mode.
 * G91 cancels absolute coordinate mode and places the controller software into relative coordinate mode.
 
-**Accuracy** : Accuracy in a CNC context, refers to how close an actual measurement is to its true value. A CNC machine will have a mechanical resolution based on its movement systems, and a tolerance for accuracy which will be a function of that, and the material being cut, work-holding, and tool-path strategy. See [Dimensional accuracy](x-y-z-calibration.md) section.
+**Accuracy** : Accuracy in a CNC context, refers to how close an actual measurement is to its true value. A CNC machine will have a mechanical resolution based on its movement systems, and a tolerance for accuracy which will be a function of that, and the material being cut, work-holding, and tool-path strategy. See [Dimensional accuracy](shapeoko/x-y-z-calibration.md) section.
 
 **Accuracy vs Precision** : Accuracy refers to how close an actual measurement is to its true value. For example, a hardened rod is very accurate if it is supposed to be .0001 and it is in fact .0001. That is high accuracy. Precision on the other hand refers to the repeatability of a measurement no matter how accurate it actually is. Using the same example, there is high precision in a line of 50 hardened rods that all measure .0015 even though they are supposed to be .0001. In this case there is high precision but low accuracy. A machine cannot normally produce parts with a tighter tolerance than its accuracy.
 
@@ -39,7 +39,7 @@ This page contains a short definition of many usual terms used in the CNC world 
 
 **Backlash** : Any kind of unexpected play in an axis due to clearance or looseness of mechanical parts. Check for it by moving an axis in one direction, stopping the unit, then noting how much movement is necessary in the opposite direction to begin moving the machine.
 
-**Ball Endmill** : Ball end mills are end mills that have a half spherical bottom \(examples pictured below\). They’re typically employed in 3D profiling \(as opposed to profiling or pocketing. For example, carving out a 3D chess piece\) because they don’t have a flat bottom and hence tend to smooth out the steps. They have some unique cutting problems at the bottom because the cutting speed varies all along the ball. The cutter is moving faster along the areas of the ball with larger diameter. See [Cutters & collets](cutters.md#ballnose-endmills) section.
+**Ball Endmill** : Ball end mills are end mills that have a half spherical bottom \(examples pictured below\). They’re typically employed in 3D profiling \(as opposed to profiling or pocketing. For example, carving out a 3D chess piece\) because they don’t have a flat bottom and hence tend to smooth out the steps. They have some unique cutting problems at the bottom because the cutting speed varies all along the ball. The cutter is moving faster along the areas of the ball with larger diameter. See [Cutters & collets](shapeoko/cutters.md#ballnose-endmills) section.
 
 **Bézier curve** : Bézier curves are a mathematical description of a curve often used in vector editing programs. They allow for freeform shapes which would be quite difficult to draw with rules and a compass.
 
@@ -63,13 +63,13 @@ This page contains a short definition of many usual terms used in the CNC world 
 
 **Chatter** :Vibration or sound that comes from the machine tool under certain conditions. It interferes with proper cutting and produces cutting errors and bad surface finish. Generally, it is a harmonic vibration or natural resonance. It can be triggered through improper setup or operation of the machine. Frequently, changing the spindle speed, depth of cut, or feed rate can eliminate the chatter. It is generally not advisable to continue cutting with chatter present.
 
-**Chipload or Chip Load** : Chip load is the thickness of a chip \(usually measured in thousandths \(i.e.: 0.010\)\) per tooth that is removed by one cutting edge of the tool \(Chip load is also sometimes measured as feed per tooth\). Chip load is an important factor in tool life because it determines how much heat will be carried away from the cutting edge. Better heat dissipation directly relates to increased tool life which is one of the primary reasons for the use of coolant. See [Feeds & speeds](feeds-and-speeds-basics.md) section.
+**Chipload or Chip Load** : Chip load is the thickness of a chip \(usually measured in thousandths \(i.e.: 0.010\)\) per tooth that is removed by one cutting edge of the tool \(Chip load is also sometimes measured as feed per tooth\). Chip load is an important factor in tool life because it determines how much heat will be carried away from the cutting edge. Better heat dissipation directly relates to increased tool life which is one of the primary reasons for the use of coolant. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md) section.
 
 **Circular Interpolation** : Circular Interpolation is combining the movement of two linear axes into a smooth arced or circular motion. Since an axis can only move linearly, intelligent coordination of axes are required to create an arc. G02 causes the motion to be in a clockwise direction, while G03 is counter-clockwise. Circular interpolation requires an endpoint, a feed rate, a center, a radius, and a direction of movement.
 
 **Clearance** : Space added between two parts intentionally. c.f., ''Allowance'', ''Interference'', ''Tolerance''
 
-**Climb Milling** : A milling cutter can cut in two directions: Conventional and Climb. Climb Milling moves the cutting tool the same direction that it wants to travel. See [Feeds & speeds](feeds-and-speeds-basics.md#climb-milling) section.
+**Climb Milling** : A milling cutter can cut in two directions: Conventional and Climb. Climb Milling moves the cutting tool the same direction that it wants to travel. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#climb-milling) section.
 
 **CNC** : Computer Numerical Control --- the use of a computer to calculate and send numbers for positioning \(coordinates, acceleration, speed, &c.\) to a machine. Usually an existing machine is adapted to CNC, so one has CNC mills, CNC routers, &c. a 3D printer is a specialized \(additive\) CNC machine.
 
@@ -96,7 +96,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Control Software** : The typical setup uses a micro-controller to interpret G-Code, while receiving files and commands from a computer system running Communication / Control software.
 
-**Conventional Milling** : A milling cutter can cut in two directions: Conventional and Climb. Conventional milling moves the cutting tool opposite the direction it wants to travel. See [Feeds & speeds](feeds-and-speeds-basics.md#conventional-milling) section 
+**Conventional Milling** : A milling cutter can cut in two directions: Conventional and Climb. Conventional milling moves the cutting tool opposite the direction it wants to travel. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#conventional-milling) section 
 
 **Conversational CNC** :Conversational CNC is a type of G-Code programming. There are actually three types of programming methods, manual programming , conversational programming \(which is also called shop floor programming\), and computer aided manufacturing \(CAM\) system programming. Each has it’s place and application. Conversational CNC can most easily be thought of as a G-code “wizard.” For example, one wizard might be for cutting a circular pocket. The wizard asks for critical input data like feedrate, diameter of pocket, step size, diameter of cutting tool, etc and then outputs G-code straight to the control software. Conversational CNC tools are usually best used for one-time machining operations.
 
@@ -114,9 +114,9 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Crash** : A crash is the unfortunate condition of “crashing” your tooling into a limit switch, workholding or some other unintended obstacle. It can result in broken tooling or broken machines, but on a belt-driven ShapeOko, in the X and Y-axes, normally just results in skipping steps on the belt. 
 
-**Cutting Depth** \(also Cut Depth\) : This is the distance which a given CAM operation will cut into the stock. If greater than Depth of Cut \(DOC\), will be reached after multiple passes are made. See [Toolpaths](toolpath-basics.md) section.
+**Cutting Depth** \(also Cut Depth\) : This is the distance which a given CAM operation will cut into the stock. If greater than Depth of Cut \(DOC\), will be reached after multiple passes are made. See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
-**Cutting Force** : Cutting force refers to the force exerted on the workpiece by the tool. High cutting forces can potentially cause deflection, inaccuracy, chatter, and broken tooling. See [Feeds & speeds](feeds-and-speeds-basics.md#mrr-power-torque-force) section
+**Cutting Force** : Cutting force refers to the force exerted on the workpiece by the tool. High cutting forces can potentially cause deflection, inaccuracy, chatter, and broken tooling. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#mrr-power-torque-force) section
 
 **Cutting Length** : See '''Flute Length''' below.
 
@@ -132,7 +132,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Dado** \(US and Canada\) : A slot \(housing in the UK, trench in Europe\) cut into the surface of a material, normally only used in woodworking where it signifies a groove made across the grain of the wood. Through dadoes pass from one side to the other \(and have only two sides and a bottom\), stopped are closed at one end \(or both\) ends.
 
-**Depth of Cut** \(DOC\) : Depth of Cut \(Depth per Pass in \[\[Carbide Create\]\]\) is how deep the tool is cutting under the surface of the stock material being cut. The depth of cut will determine the height of the chip produced. Typically, the depth of cut will be less than or equal to the diameter of the cutting tool. It takes more power to run a higher depth of cut and so slower feed rates and/or spindle speeds are usually necessary. Axial DOC is the depth specifically, radial DOC is the width of the tool which can be engaged in each pass. See [Feeds & speeds](feeds-and-speeds-basics.md#choosing-doc-and-woc) section.
+**Depth of Cut** \(DOC\) : Depth of Cut \(Depth per Pass in \[\[Carbide Create\]\]\) is how deep the tool is cutting under the surface of the stock material being cut. The depth of cut will determine the height of the chip produced. Typically, the depth of cut will be less than or equal to the diameter of the cutting tool. It takes more power to run a higher depth of cut and so slower feed rates and/or spindle speeds are usually necessary. Axial DOC is the depth specifically, radial DOC is the width of the tool which can be engaged in each pass. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#choosing-doc-and-woc) section.
 
 **Depth Ring** : Plastic collar used to set bit cutting depth.
 
@@ -146,7 +146,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **E-Stop / Emergency Stop** : An e-stop or emergency stop is the control that stops all machine operation in the event of a crash, runaway machine, or some dangerous or potentially dangerous situation. True emergency stop devices cut power to spindles, drives and any other powered element of a machine so that all sources of potential danger can be eliminated with a button.
 
-**Endmill** : An endmill is a type of cutting tool used in industrial milling applications. It is distinguished from the drill bit, in its application, geometry, and manufacture. While a drill bit can only cut in the axial direction, a milling bit can generally cut in all directions, though some cannot cut axially. Endmills are used in milling applications such as profile milling, tracer milling, face milling, and plunging. See [Cutters & collets](cutters.md) section
+**Endmill** : An endmill is a type of cutting tool used in industrial milling applications. It is distinguished from the drill bit, in its application, geometry, and manufacture. While a drill bit can only cut in the axial direction, a milling bit can generally cut in all directions, though some cannot cut axially. Endmills are used in milling applications such as profile milling, tracer milling, face milling, and plunging. See [Cutters & collets](shapeoko/cutters.md) section
 
 **Extrude** : Uses a curve and direction to create a 3D version of the original curve.
 
@@ -154,23 +154,23 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Face Mill or Face Milling** : A face mill is a type of mill cutter that contains multiple cutting teeth and is often used to remove large amounts of material. In face milling, the cutter is mounted on a spindle having an axis of rotation perpendicular to the workpiece surface. The milled surface results from the action of cutting edges located on the periphery and face of the cutter.
 
-**Feed or Feedrate** : The desired rate of movement of the cutting tool into the workpiece for a specific machining operation. See [Feeds & speeds](feeds-and-speeds-basics.md) section
+**Feed or Feedrate** : The desired rate of movement of the cutting tool into the workpiece for a specific machining operation. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md) section
 
 **Finger Joint** : A joint which allows joining two pieces of wood so as to make a larger one. 
 
-**Finishing Pass** : A finishing pass is usually the last pass over a part characterized by higher spindle speeds and a shallower depth of cut in order to improve the finish of a part and increase tolerances. See [Toolpaths](toolpath-basics.md#roughing-vs-finishing-toolpaths) section.
+**Finishing Pass** : A finishing pass is usually the last pass over a part characterized by higher spindle speeds and a shallower depth of cut in order to improve the finish of a part and increase tolerances. See [Toolpaths](shapeoko/toolpath-basics.md#roughing-vs-finishing-toolpaths) section.
 
 **Firmware** : Typically firmware is loaded onto a micro-controller and interprets G-code into machine motion. Grbl is a common choice.
 
 **Fixture** : A piece of equipment which holds the stock in place. c.f., ''Jig''
 
-**Flutes** : The term flute refers to the groove on the periphery of a cutter that allows for chip flow away from the cut. See [Cutters & collets](cutters.md) section.
+**Flutes** : The term flute refers to the groove on the periphery of a cutter that allows for chip flow away from the cut. See [Cutters & collets](shapeoko/cutters.md) section.
 
 **Flute Length** : Length of flutes or grooves. This length will determine how deeply an endmill will actually be able to cut. Note that it is possible to continue to cut deeper, but the shaft of the endmill will rub, generating friction heat which is not recommended \(and a tapered endmill with a shaft thicker than the cutting diameter will require relief cuts to clear for the taper and shaft\).
 
 ## G
 
-**G-Code** : A defined set of command instructions and parameters which determine how a machine will move and function. Named for the ''G'' movement commands which are most frequently used and which were the only ones defined when the language was named. Usually indicated by the file extensions .gc, .gcode, .tap, .nc, .ngc, &c. See [CAD, CAM, and G-code](cad-cam-tools.md) section.
+**G-Code** : A defined set of command instructions and parameters which determine how a machine will move and function. Named for the ''G'' movement commands which are most frequently used and which were the only ones defined when the language was named. Usually indicated by the file extensions .gc, .gcode, .tap, .nc, .ngc, &c. See [CAD, CAM, and G-code](shapeoko/cad-cam-tools.md) section.
 
 **Gantry** : A bridge-like structure that goes across the machine and above the work \(not necessarily moveable -- the bed could move in the Y direction instead as some 3D printers do\).
 
@@ -198,7 +198,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 ## L
 
-**Lead-In and Lead-Out** : The terms “lead-in” and “lead-out” refer to how a CNC part program approaches and leaves the part when cutting. Most CAM programs have parameters for describing the type of approach and exit strategy that will be employed in cutting a part. These cutting strategies can range from directly plunging and retracting the tool \(no lead-in or lead-out\) to arching toolpaths which “kiss” the origin after a soft lead-in. These cutting strategy decisions vary based on workholding, fixtures, material choices, etc. See [Toolpaths](toolpath-basics.md#lead-in-lead-out) section.
+**Lead-In and Lead-Out** : The terms “lead-in” and “lead-out” refer to how a CNC part program approaches and leaves the part when cutting. Most CAM programs have parameters for describing the type of approach and exit strategy that will be employed in cutting a part. These cutting strategies can range from directly plunging and retracting the tool \(no lead-in or lead-out\) to arching toolpaths which “kiss” the origin after a soft lead-in. These cutting strategy decisions vary based on workholding, fixtures, material choices, etc. See [Toolpaths](shapeoko/toolpath-basics.md#lead-in-lead-out) section.
 
 **Limit Switch** : The term limit switch is a generic term for a sensor or switch at the end of an axis which is placed there to trip an emergency stop situation if the axis for some reason travels that far. In a perfect world, limit switches would never be triggered, but in the real world they are critical to avoid machine self destruction. Ideally one would not run a CNC machine without limit switches on both ends of all axes fully operational, but the belt driven design of the Shapeoko allows one some leeway in this, and a crash may result in nothing worse than the belt skipping. Moreover, the current Shapeoko 3 configuration uses homing switches \(see above\) to enable soft limits. Limit switches can be made from microswitches, hall effect sensors or optical switches. Because inputs on CNC machines are often times limited, it is a common practice to tie the switches together so that all limit switches trigger use the same input.
 
@@ -234,7 +234,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Plunge** : See '''Step Down''' below.
 
-**Plungerate** : How quickly the end mill will be driven into the material --- the feed rate used for the negative Z-axis move. See [Feeds & speeds](feeds-and-speeds-basics.md#plunge-rate) section.
+**Plungerate** : How quickly the end mill will be driven into the material --- the feed rate used for the negative Z-axis move. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#plunge-rate) section.
 
 **Pocket Milling** : Pocket milling is an interior recess that is cut into the surface of a workpiece. Pockets may be round, rectangular or an arbitrary shape. 
 
@@ -246,7 +246,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Precision** : A measurement of how well things match the desired dimension, c.f., ''Accuracy''.
 
-**Profile** : A 2d cut into the material, following a closed path --- the result will be a cut-out piece and a cut in the stock material and may be either inside \(the path will define the shape left in the stock material\) or outside \(the profile will define the shape cut out of the stock material\). The depth parameter specifies the depth of cut into the material and should be negative. See [Toolpaths](toolpath-basics.md#contour-profile-toolpaths) section.
+**Profile** : A 2d cut into the material, following a closed path --- the result will be a cut-out piece and a cut in the stock material and may be either inside \(the path will define the shape left in the stock material\) or outside \(the profile will define the shape cut out of the stock material\). The depth parameter specifies the depth of cut into the material and should be negative. See [Toolpaths](shapeoko/toolpath-basics.md#contour-profile-toolpaths) section.
 
 ## Q
 
@@ -270,7 +270,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Roughing Clearance** : How much material will be left when roughing out material for the current operation as a roughing pass, and instead, will only be removed w/ a second operation, the finishing pass which may have different settings for stepover, feed rate, &c. so as to leave a nicer finish.
 
-**RPM** : The speed at which an endmill is rotating. See [Feeds & speeds](feeds-and-speeds-basics.md#choosing-rpm-and-feedrate) section.
+**RPM** : The speed at which an endmill is rotating. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#choosing-rpm-and-feedrate) section.
 
 **Runout** : The inaccuracy of a rotating mechanical system, specifically the degree to which a tool does not rotate exactly in line with its axis.
 
@@ -284,9 +284,9 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Step Down** : How deeply the pocket will be cut w/ each pass. Also termed "cut depth/depth of cut, q.v." or "depth per pass" or "plunge".
 
-**Stepover** : The offset from one toolpath to the next adjacent toolpath. See [Toolpaths](toolpath-basics.md) section.
+**Stepover** : The offset from one toolpath to the next adjacent toolpath. See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
-**Steps** : The movement of a stepper motor is composed of discrete rotational movements. Each such movement is a step \(or micro-step if that is enabled --- micro-steps sub-divide each step into smaller motions, each level half as small as the one before\). See [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#stepper-motors) section.
+**Steps** : The movement of a stepper motor is composed of discrete rotational movements. Each such movement is a step \(or micro-step if that is enabled --- micro-steps sub-divide each step into smaller motions, each level half as small as the one before\). See [Anatomy of a Shapeoko](shapeoko/anatomy-of-a-shapeoko.md#stepper-motors) section.
 
 **STL** : Standard Tessellation Language or Stereo Lithography, a representation of a 3D model using triangle meshes.
 
@@ -294,7 +294,7 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Stock Surface** : The height of the material at which cutting operations will begin. After cutting one layer off, if you have \(a\) successive feature\(s\) w/in a previously cut pocket, you can define a stock surface which matches the bottom of the preceding pocket for efficiency's sake. Please note that not all programs, check on this and if you enter an incorrect value, or get the cutting order wrong when generating G-code, you could crash your machine or break a bit. There are simulation programs which will optimize and check for such.
 
-**Surface Feet per Minute \(SFM\)** : The speed at which the flutes of the endmill move over the material as the machine cuts, based on the endmill diameter and spindle RPM. See [Feeds & speeds](feeds-and-speeds-basics.md) section.
+**Surface Feet per Minute \(SFM\)** : The speed at which the flutes of the endmill move over the material as the machine cuts, based on the endmill diameter and spindle RPM. See [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md) section.
 
 ## T
 
@@ -302,11 +302,11 @@ Most Dremels and routers either use a proprietary design, specific to that machi
 
 **Tolerance** : The degree to which a part may unintentionally vary from the ideal dimension. c.f., ''Allowance'', ''Clearance'', ''Interference''
 
-**Toolpath** : The course which an endmill will follow when performing a desired CAM operation. Carbide Create affords two options: Contour operations \(follow the path in question \(No Offset\), offsetting the spindle as needed \(Outside / Right and Inside / Left\), or so as to cut out the entire area \(Pocket\)\) and V Carve \(these move a V-bit so that the perimeter will be machined up to, increasing or decreasing depth as necessary\). See [Toolpaths](toolpath-basics.md) section.
+**Toolpath** : The course which an endmill will follow when performing a desired CAM operation. Carbide Create affords two options: Contour operations \(follow the path in question \(No Offset\), offsetting the spindle as needed \(Outside / Right and Inside / Left\), or so as to cut out the entire area \(Pocket\)\) and V Carve \(these move a V-bit so that the perimeter will be machined up to, increasing or decreasing depth as necessary\). See [Toolpaths](shapeoko/toolpath-basics.md) section.
 
 **Toolpath Zero** : The intended origin point for zero when machining. Options include Lower-left, Center-left, Top-left and Center.
 
-**Tram** : The squareness of your mill head to the table. See [Squaring, surfacing, tramming](squaring.md#tramming-the-router-spindle) section.
+**Tram** : The squareness of your mill head to the table. See [Squaring, surfacing, tramming](shapeoko/squaring.md#tramming-the-router-spindle) section.
 
 **Typical \(or TYP\)** : \(in CAD\) TYP means typical to all identical features, e.g., if there are multiple bolt patterns and only one is dimensioned with "TYP" on all DIMs, then all the bolt patterns are exactly the same.
 

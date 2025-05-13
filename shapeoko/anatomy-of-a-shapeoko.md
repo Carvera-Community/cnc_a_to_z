@@ -10,21 +10,21 @@ None of this info is required to be able to successfully use the machine, but yo
 
 That part is self explanatory, since the Shapeoko is a kit everyone will get acquainted with the \(very simple\) mechanical structure during assembly anyway. The correct geometry of pieces cut on the Shapeoko will depend mainly on:
 
-* making sure the mechanical structure is assembled such that all three axes of movement are _actually_ orthogonal to each other \(see [Squaring, surfacing, tramming](squaring.md#squaring-the-machine)\).
+* making sure the mechanical structure is assembled such that all three axes of movement are _actually_ orthogonal to each other \(see [Squaring, surfacing, tramming](shapeoko/squaring.md#squaring-the-machine)\).
 * making sure that there is no slop or excessive friction anywhere in the moving parts \(which mostly boils down to tightening the V-wheel eccentric nuts correctly\).
 
 ## Work area
 
 The Shapeoko3 has a cutting area of 16 × 16'', the XL has 16 × 33'' and the XXL has 33 × 33''. One thing to consider is that the cutting area is not centered, it extends beyond the front plates of the machine: 
 
-![](.gitbook/assets/page_11_800.png)
+![](.gitbook/assets/shapeoko/page_11_800.png)
 
 Some implications may not be immediately apparent:
 
 * a \(small\) part of the cutting area is lost unless the stock material is overhanging the front of the machine.
 * however this is also a great opportunity to use this front area to mill a workpiece clamped **vertically** to the front of the machine _e.g._, to cut finger joints:
 
-![](.gitbook/assets/willadams_vertical_fixture.jpg)
+![](.gitbook/assets/shapeoko/willadams_vertical_fixture.jpg)
 
 {% hint style="info" %}
 Plans to build this vertical fixture are available at [https://cutrocket.com/p/5cb25f3380844/](https://cutrocket.com/p/5cb25f3380844/)
@@ -62,11 +62,11 @@ A pulley is installed on the motor shaft, and drives a "**GT2**" belt that has a
 
 
 
-![](.gitbook/assets/page_14_800_fixed.png)
+![](.gitbook/assets/shapeoko/page_14_800_fixed.png)
 
 The pulleys used on the Shapeoko 3 happen to have 20 teeth, with \(obviously\) the same 2mm spacing as the belt: so when the shaft does one full revolution, the belt moves by 20 teeth, i.e. 40mm.
 
-This full revolution requires 1600 microsteps, which means that it requires 1600/40 = 40 steps to move by 1mm. And this is where the "**40 steps/mm**" setting in the Shapeoko controller comes from \(more on this in the [Dimensional accuracy](x-y-z-calibration.md#x-y-z-calibration) section\)
+This full revolution requires 1600 microsteps, which means that it requires 1600/40 = 40 steps to move by 1mm. And this is where the "**40 steps/mm**" setting in the Shapeoko controller comes from \(more on this in the [Dimensional accuracy](shapeoko/x-y-z-calibration.md#x-y-z-calibration) section\)
 
 Which means that the minimal movement that the Shapeoko can theoretically do in any axis is 1/40th of a mm, that's 0.025mm or 0.001''. Quite precise, right?
 
@@ -80,7 +80,7 @@ So in theory, telling the motor to do N steps will move the associated axis by N
 
 Another potential reason for "losing" steps, is that the pulley may slip on the motor shaft if the **set screws** are not tight, so they should be secured/checked \(using a 1.5mm Allen key\):
 
-![](.gitbook/assets/pulley_setscrew.png)
+![](.gitbook/assets/shapeoko/pulley_setscrew.png)
 
 Finally, the belts must be **tensioned** correctly, to avoid any slop that could lead to the belt jumping the pulley teeth when a large force is applied on that axis. This is a Goldilocks situation where the belt needs to be tight enough to avoid this problem, but not too tight to avoid bending the motor shaft. 
 
@@ -88,7 +88,7 @@ Finally, the belts must be **tensioned** correctly, to avoid any slop that could
 The usual words to characterize an adequate belt tension are "guitar-string tight". For the Y belts, a good indication of proper tension is that when the gantry is at one end of the rails, it should be possible to lift the belt a bit, but it should not be possible to slide a full pinky finger under the middle of the belt.
 {% endhint %}
 
-Natural manufacturing variations across belts and pulleys, a variable level of tensioning, and probably multiple other factors, are such that the actual number of steps required to move by 1mm may not be _exactly_ 40, but a tiny bit more or a tiny bit less: this is covered in the X/Y/Z calibration part of the [Dimensional accuracy](x-y-z-calibration.md#x-y-z-calibration) section.
+Natural manufacturing variations across belts and pulleys, a variable level of tensioning, and probably multiple other factors, are such that the actual number of steps required to move by 1mm may not be _exactly_ 40, but a tiny bit more or a tiny bit less: this is covered in the X/Y/Z calibration part of the [Dimensional accuracy](shapeoko/x-y-z-calibration.md#x-y-z-calibration) section.
 
 It is the job of the **controller** to send commands to the stepper drivers \(which in turn will generate the right current waveforms on the motor phases\), to achieve the desired movements of the machine.
 
@@ -96,7 +96,7 @@ It is the job of the **controller** to send commands to the stepper drivers \(wh
 
 The brain of the Shapeoko is the controller board. There have been several revisions over the years, the one presented below is from circa 2017 \(v2.4e\), the latest one may be slightly different, but fundamentals will likely be the same.
 
-![](.gitbook/assets/controller_overview.png)
+![](.gitbook/assets/shapeoko/controller_overview.png)
 
 * **\#1** is the connector of the **USB link** from the host PC that sends the G-code commands
 * **\#2** is the **main power** connector \(24V from the external power supply\)
@@ -215,7 +215,7 @@ The first six settings should be clear from the whole steps/microsteps section a
 
 What GRBL does is listen to incoming commands on the USB interface, and act upon receiving them. Here's a very rough description of what's going on inside GRBL:
 
-![](.gitbook/assets/page_21_800_fixed.png)
+![](.gitbook/assets/shapeoko/page_21_800_fixed.png)
 
 * first there is a **reception buffer**, and that's a critical point because while the Arduino microcontroller can execute code with very deterministic timings, that's not the case of the host PC at the other end of the USB cable, which executes _e.g._ Carbide Motion on Windows or Mac OS X. And as everyone has experienced, from time to time Windows or MAC OS can decide to go and do something else for a little while, and this could break the flow of G-code commands into the controller. With this buffer, the control software can send a few additional G-code commands in advance of the current one, to ensure that the controller will never starve waiting for the next command from USB.
 * the **G-code commands** are parsed and processed by a dedicated piece of code that generates the appropriate signals to drive the stepper driver to produce the desired motion
@@ -276,7 +276,7 @@ The most significant difference between the DeWalt and the Makita/CCR is the RPM
 
 If you know you will need to be using lower RPMs, the Makita or CCR will be a better choice. Other than that, all three routers \(and more\) have been used successfully for all kinds of jobs on the Shapeoko.
 
-Pro CNCs usually have a **spindle**, not a router, and that is a possible \(and popular\) upgrade path for the Shapeoko, check out the [HW upgrades](upgrading-the-machine.md#spindle-upgrade) section for more.
+Pro CNCs usually have a **spindle**, not a router, and that is a possible \(and popular\) upgrade path for the Shapeoko, check out the [HW upgrades](shapeoko/upgrading-the-machine.md#spindle-upgrade) section for more.
 
 
 
