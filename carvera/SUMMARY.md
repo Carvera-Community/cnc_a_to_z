@@ -1,4 +1,4 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [CNC workflow](workflow.md)
+* [CNC workflow](cnc-workflow.md)
