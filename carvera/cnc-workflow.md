@@ -50,6 +50,8 @@ The next question is, where is the origin? On a CNC like the Carvera, there is n
 
 The **ZERO or origin** point (X0,Y0,Z0) is the point in space against which all movements described in a G-code file will be referenced.
 
+<figure><img src=".gitbook/assets/page_8_800_redo.png" alt=""><figcaption></figcaption></figure>
+
 This point is usually referenced somewhere on the stock material (_e.g._, a corner or the center of the top face), but it could be set anywhere in the 3D workspace. The G-code for a given job will use this reference, and perform movements **relative** to this local origin. This is called the Work System Coordinate System (WCS).
 
 However, the machine also has a **Home** position, which is where it can go to reset its location: the Home position corresponds to somewhere where the machine will get a physical feedback that it has reached the position, and on the Carvera that's above the back top right corner, where **homing switches** on the X,Y, and Z axis happen to be triggered.
