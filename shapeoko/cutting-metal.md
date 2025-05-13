@@ -6,7 +6,7 @@ The following was just a little experiment in doing profile cuts in copper with 
 
 The toolpath is a single **contour/profile** cut, which is not the best thing to do if you need a perfect finish \(you should rather do a roughing cut followed by a light finishing cut to have perfect edges\), but for the purpose of this test, it represented a worst case scenario i.e. slotting throughout the cut.
 
-* the first step was to determine an adequate target **chipload** for a 1/8'' endmill in copper. The guideline in the [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md#shapeoko-chiploads-guideline) section for aluminium is from 0.0005'' / 0.0127mm to 0.001'' / 0.0254mm. Aluminium and copper are different, and their hardness varies with the specific type/temper used, but overall they both are in the 75–150BHN hardness range, so I assumed I could use the same target chipload \(since my copper sheet was of unknown origin, I could not make any better informed decision anyway\).
+* the first step was to determine an adequate target **chipload** for a 1/8'' endmill in copper. The guideline in the [Feeds & speeds](feeds-and-speeds-basics.md#shapeoko-chiploads-guideline) section for aluminium is from 0.0005'' / 0.0127mm to 0.001'' / 0.0254mm. Aluminium and copper are different, and their hardness varies with the specific type/temper used, but overall they both are in the 75–150BHN hardness range, so I assumed I could use the same target chipload \(since my copper sheet was of unknown origin, I could not make any better informed decision anyway\).
 * **stepover** did not apply this since was a slotting cut. Therefore **chip thinning** did not apply either.
 * I chose **12,000 RPM**, to keep things quiet and since cutting force was not going to be a problem for such a shallow cut.
 * to achieve the 0.0005'' chipload at 12,000RPM with this 2-flute endmill, the **feedrate** needed to be 0.0005 × 2 × 12000 = 12ipm = 300mm/min
@@ -20,7 +20,7 @@ I actually tested 9 feedrates, starting from below the recommended min chipload,
 I did not use any coolant or blast or air for this cut to be in a worst case scenario, for a real cut it would be better to do so.
 {% endhint %}
 
-![](.gitbook/assets/shapeoko/cutting_metal_profile_cut_tests_copper.png)
+![](.gitbook/assets/cutting_metal_profile_cut_tests_copper.png)
 
 All the cuts completed without issue, but:
 
@@ -43,7 +43,7 @@ For this specific test, 600mm/min i.e. a chipload of 0.001'' / 0.0254mm seemed t
 * predicted **deflection** is still negligible at 0.001mm \(0.00004''\) for a 20mm \(0.8''\) stickout
 * still using a simple slotting toolpath, but this time I used linear ramping and lead-in/lead-out options in VCarve.
 
-![](.gitbook/assets/shapeoko/cutting_metal_profile_cut.png)
+![](.gitbook/assets/cutting_metal_profile_cut.png)
 
 Once the cut started, I could feel that the 300mm/min feedrate was a bit too low, so I gradually increased using **feedrate override** it until it sounded right, and ended up at +50%, i.e. 450mm/min \(18ipm\), i.e. a chipload of 0.00075'', which happens to be right in the middle of the recommended range for this endmill size.
 
@@ -51,7 +51,7 @@ Once the cut started, I could feel that the 300mm/min feedrate was a bit too low
 
 I needed to cut the following piece from 2017 T6 aluminium:
 
-![](.gitbook/assets/shapeoko/alu_adaptive_dimensions.png)
+![](.gitbook/assets/alu_adaptive_dimensions.png)
 
 It is relatively small \(about 0.8''×1.5''×0.4''\), and holes are about 0.15'', so I went for using a 1/8'' endmill \(same as before: 2-flute ZrN-coated 1/8'' square endmill, Carbide 3D's \#102Z\)
 
@@ -66,23 +66,23 @@ The majority of the cut was done with one **3D adaptive clearing toolpath** for 
 * I kept 0.02'' axial stock to leave, and 0.02'' radial stock to leave.
 * 0.16'' DOC \(~130% of endmill diameter\), which resulted in two passes \(in blue\):
 
-![](.gitbook/assets/shapeoko/alu_adaptive_clearing.png)
+![](.gitbook/assets/alu_adaptive_clearing.png)
 
 I used a regular pocketing toolpath to cut the four holes, using the same feeds and speeds:
 
-![](.gitbook/assets/shapeoko/alu_holes.png)
+![](.gitbook/assets/alu_holes.png)
 
 I added a horizontal finishing pass to shave off the 0.02'' \(axial and radial\) excess material left during the adaptive clearing, and get to the final piece dimensions:
 
-![](.gitbook/assets/shapeoko/alu_horizonal_finishing.png)
+![](.gitbook/assets/alu_horizonal_finishing.png)
 
 Finally, I used an adaptive toolpath to cutout the piece. I could have used a regular profile cut \(slotting\), but considering the small endmill \(1/8''\) and relatively thick stock \(0.4''\), this seemed less risky albeit longer to execute: 
 
-![](.gitbook/assets/shapeoko/alu_adaptive_profile_cut.png)
+![](.gitbook/assets/alu_adaptive_profile_cut.png)
 
 I used an air jet throughout the cut to help chip evacuation, no coolant. This got me nice long chips, and a decent finish quality:
 
-![](.gitbook/assets/shapeoko/alu_adaptive_result.jpg)
+![](.gitbook/assets/alu_adaptive_result.jpg)
 
 Retrospectively, I should have used much higher RPMs \(while maintaining the same chiploads\) to optimize this cut.
 

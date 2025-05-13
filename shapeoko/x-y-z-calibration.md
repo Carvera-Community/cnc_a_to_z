@@ -63,7 +63,7 @@ A simple way to address these contraints is to:
 * cut three deep pockets \(two aligned along X, two aligned along Y\)
 * measure the border to border distances, and the pocket depth:
 
-![](.gitbook/assets/shapeoko/xyzcalibration_pockets.png)
+![](.gitbook/assets/xyzcalibration_pockets.png)
 
 The border-to-border measurement for X and Y will cancel out the endmill diameter/runout/deflection errors from the measurement, and the pocket depth can also easily be measured with a caliper to adjust $102.
 
@@ -75,7 +75,7 @@ Another popular method is to rather measure the gantry movements themselves, ins
   * attached to the bed of the machine and oriented along X then Y axis, to measure how much the gantry moves versus what was commanded.
   * attached _e.g._ to the router and oriented along the Z axis, to measure how much the Z plate moves versus what was commanded.
 
-![](.gitbook/assets/shapeoko/xyzcalibration_dialindicator.png)
+![](.gitbook/assets/xyzcalibration_dialindicator.png)
 
 * a \(long\) **caliper**, oriented along X then Y axis, with the fixed part attached to the bed, then pushing the moving part with the shank of the endmill
 * a **DRO** \(digital readout scale\) can be used to do the same, over a longer distance to minimize the error.
@@ -85,7 +85,7 @@ The axis of the measurement tool should be aligned carefully to match the axis o
 {% endhint %}
 
 {% hint style="info" %}
-If you tensioned the belts evenly using the frequency measurement method mentioned in [Squaring, surfacing, tramming](shapeoko/squaring.md#squaring-the-machine-belt-tension-part), chances are that the calibrated number of steps per mm on X and Y will be very close, and may even not require calibration at all, which is a desirable thing since using the round default value of 40 steps per mm minimizes rounding errors in GRBL's computations.
+If you tensioned the belts evenly using the frequency measurement method mentioned in [Squaring, surfacing, tramming](squaring.md#squaring-the-machine-belt-tension-part), chances are that the calibrated number of steps per mm on X and Y will be very close, and may even not require calibration at all, which is a desirable thing since using the round default value of 40 steps per mm minimizes rounding errors in GRBL's computations.
 {% endhint %}
 
 ### Limitations of belt calibration
@@ -125,7 +125,7 @@ HSS endmills are more flexible than carbide endmills, so they will withstand a g
 
 ### Why bother?
 
-Runout was defined in the [Cutters & collets](shapeoko/cutters.md#runout-tir) section. Since the toolpaths in the CAM tool are based on the endmill diameter, and since runout artificially increases the effective cutting diameter, the parts will have a dimensional error of \(at least\) the runout value.
+Runout was defined in the [Cutters & collets](cutters.md#runout-tir) section. Since the toolpaths in the CAM tool are based on the endmill diameter, and since runout artificially increases the effective cutting diameter, the parts will have a dimensional error of \(at least\) the runout value.
 
 Runout matters a lot for projects using small endmills, i.e. anything smaller than 1/8''. The reason is that the endmill will see +/- 1 runout of variation on the chipload. Since runout can be of the same order of magnitude as the target chipload, a small endmill seeing a chipload twice as high as the optimal target value can easily break.
 
@@ -145,35 +145,35 @@ Runout measured on the endmill is the result of the combination of the router ru
 
 Router runout itself can be measured by positioning the test indicator inside the collet taper:
 
-![](.gitbook/assets/shapeoko/runout_router.png)
+![](.gitbook/assets/runout_router.png)
 
 In this case, the measured taper runout was approximately 0.02mm \(0.0008''\). 
 
 But what really matters is total runout at the tip of the endmill. Below is an illustration of measuring runout at the tip of a 3-flute 1/4'' square endmill. First, the test indicator is positioned at a point where no flutes touch it, and zero is set there:
 
-![](.gitbook/assets/shapeoko/runout_flute0.png)
+![](.gitbook/assets/runout_flute0.png)
 
 then the endmill is rotated manually until the test indicator readout maxes out at the tip of the first flute. In this case it read 0.41mm:
 
-![](.gitbook/assets/shapeoko/runout_flute1.png)
+![](.gitbook/assets/runout_flute1.png)
 
 the endmill is then rotated further and the deviation at the tip of the next flute is measured, in this case 0.37mm:
 
-![](.gitbook/assets/shapeoko/runout_flute2.png)
+![](.gitbook/assets/runout_flute2.png)
 
 ditto for the last flute, which read 0.42mm in this setup:
 
-![](.gitbook/assets/shapeoko/runout_flute3.png)
+![](.gitbook/assets/runout_flute3.png)
 
 So the max difference is 0.42 - 0.37 = **0.05mm runout**
 
 As a comparison, measuring runout on the shaft after setting the indicator zero to the point giving the minimal readout,
 
-![](.gitbook/assets/shapeoko/runout_shaft_min.png)
+![](.gitbook/assets/runout_shaft_min.png)
 
 gave a max value of about 0.045mm:
 
-![](.gitbook/assets/shapeoko/runout_shaft_max.png)
+![](.gitbook/assets/runout_shaft_max.png)
 
 Not too far from the 0.05mm measured on the flutes, and easier to measure there.
 
@@ -194,7 +194,7 @@ This example value of 0.05mm \(0.002''\) runout on a Makita router with the stoc
   * then..._lightly_ tap the back of the screwdriver with a mallet a couple of times.
   * check runout and repeat if necessary. It takes a few tries to find the right amount of force. In this example, the original runout was around 0.002'', and tapping the endmill reduced it to around 0.0006''. This adjustment should hold, at least until the end of the current job with this endmill.
 
-![](.gitbook/assets/shapeoko/runout_tapping.png)
+![](.gitbook/assets/runout_tapping.png)
 
 ### Managing residual runout
 
@@ -214,5 +214,5 @@ There are at least two things you can do to minimize those errors:
 You might argue that homing provides the benefit of clearing the effect of lost/skipped motor steps. But if you lose steps in the first place, there is no chance that dimensional accuracy will be good, so you should address that first \(using less aggressive settings\)
 {% endhint %}
 
-* use a [tool length probe](shapeoko/upgrading-the-machine.md#tool-length-offset-probe) to automate the adjustment of the Z0 between runs. Sure, a tool length probe comes with its own accuracy/repeatability limitations, but chances are that it will still provide a more repeatable result than manual re-zeroing. And once things are repeatable, it's easy to adjust the CAM design to compensate for residual dimensional errors.
+* use a [tool length probe](upgrading-the-machine.md#tool-length-offset-probe) to automate the adjustment of the Z0 between runs. Sure, a tool length probe comes with its own accuracy/repeatability limitations, but chances are that it will still provide a more repeatable result than manual re-zeroing. And once things are repeatable, it's easy to adjust the CAM design to compensate for residual dimensional errors.
 

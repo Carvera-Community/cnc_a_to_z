@@ -33,7 +33,7 @@ When the cut depth is off, assuming the toolpath itself is correct, chances are 
 
 * under load, the pulley may be slipping on the motor shaft if the **set screws** are not tight, so that should be checked/secured first \(using a 1.5mm hex key\):
 
-![](.gitbook/assets/shapeoko/pulley_setscrew.png)
+![](.gitbook/assets/pulley_setscrew.png)
 
 {% hint style="info" %}
 The original set screws work just fine for most users, but some use beefier/larger set screws, or replace them with cap screws
@@ -50,7 +50,7 @@ The usual words to characterize an adequate belt tension are "guitar-string tigh
 * finally, if you are using a touch probe to zero Z axis only, make sure it does not sit on its recessed part, which is used for XYZ probing : installing it on a corner and probing Z would result in a Z0 that is off by the height of the probe step.
 
 {% hint style="info" %}
-If nothing is slipping and the depth error is small, it _might_ just be that the Z steps per mm value \($102 parameter in GRBL\) is not right, refer to the [Dimensional accuracy](shapeoko/x-y-z-calibration.md#x-y-z-calibration) section for more.
+If nothing is slipping and the depth error is small, it _might_ just be that the Z steps per mm value \($102 parameter in GRBL\) is not right, refer to the [Dimensional accuracy](x-y-z-calibration.md#x-y-z-calibration) section for more.
 {% endhint %}
 
 ## Crashing the machine
@@ -113,21 +113,21 @@ Some people use the wasteboard as a truly disposable part, i.e. have their toolp
 
 Here's my first MDF wasteboard after a few months of use:
 
-![](.gitbook/assets/shapeoko/wasteboard_scarred.png)
+![](.gitbook/assets/wasteboard_scarred.png)
 
 Tape & glue workholding is great, but removing it tends to tear out the MDF surface over time. I later switched to an HDPE wasteboard that is immune to this, but still needs to be resurfaced \(much less frequently though\): 
 
-![](.gitbook/assets/shapeoko/wasteboard_hdpe_scarred.png)
+![](.gitbook/assets/wasteboard_hdpe_scarred.png)
 
 ## Tool wear
 
 It takes a while to admit that endmills really are consumables \(no matter how expensive they can be\) and must be replaced when they are worn out, and the difficulty is that this is not often visible to the naked eye. Here's a close-up picture of the cutting edge of a brand new endmill:
 
-![](.gitbook/assets/shapeoko/sharp_tool.jpg)
+![](.gitbook/assets/sharp_tool.jpg)
 
 Notice the narrow part that runs along the edge \(a.k.a. "primary radial relief"\), and the much larger surface \("secondary radial relief"\). By comparison, here is how my ancient \#201 endmill looks after being abused for months:
 
-![](.gitbook/assets/shapeoko/worn_tool.jpg)
+![](.gitbook/assets/worn_tool.jpg)
 
 The primary radial relief is so blunt it is almost gone. At this point, the cutter is rubbing/forcing its way into material as much as it is cutting it. 
 
@@ -159,7 +159,7 @@ It turns out that collets also have a lifetime, and require basic maintenance fo
 * it is good practice to wipe off the V rails if crud accumulates.
 * cleaning the V-wheels \(ALL of them\) once in a while helps keeping a clean contact with the rail too. I use a cotton swab placed between the wheel and the rail, and slide the machine manually:
 
-![](.gitbook/assets/shapeoko/maintenance_clean_vwheels.png)
+![](.gitbook/assets/maintenance_clean_vwheels.png)
 
 {% hint style="info" %}
 You could also use custom **wheels covers:** check out David Johnson's DIY engineering site to buy some, he also made them available on Thingiverse so if you have a 3D printer you could print them yourself.
@@ -169,11 +169,11 @@ You could also use custom **wheels covers:** check out David Johnson's DIY engin
 
 Sooner or later you will have to replace a belt, and it's less than fun to run the new belt through the idlers and pulley, so here's a handy tip from **@Microwave\_Monkey**: undo one end clamp, loop the new belt through and reinstall the clamp, then take the end of the old belt and secure it to the end of the new belt with some painters tape like so:
 
-![](.gitbook/assets/shapeoko/belts1.jpeg)
+![](.gitbook/assets/belts1.jpeg)
 
-![](.gitbook/assets/shapeoko/belts2.jpeg)
+![](.gitbook/assets/belts2.jpeg)
 
-![](.gitbook/assets/shapeoko/belts3.jpeg)
+![](.gitbook/assets/belts3.jpeg)
 
 Now it is easy to gently pull the new belt through the pulleys and such with the old belt. No fiddling around trying to coax the new belt around all of them.
 
@@ -181,7 +181,7 @@ Now it is easy to gently pull the new belt through the pulleys and such with the
 
 From time to time, it is worth checking whether the belts are still guitar-string tight, and the eccentric nuts still keep the V-wheels right against the rails.
 
-* belts can stretch/loosen a bit, and this will not be readily apparent. Do the pinky finger test, or better yet actually measure the belt tension  \(using the method mentioned in [Squaring, surfacing, tramming](shapeoko/squaring.md#squaring-the-machine)\)
+* belts can stretch/loosen a bit, and this will not be readily apparent. Do the pinky finger test, or better yet actually measure the belt tension  \(using the method mentioned in [Squaring, surfacing, tramming](squaring.md#squaring-the-machine)\)
 * with the machine turned off,
   * slide the gantry and X/Z carriage manually and check that all wheels are turning: if one of them is not moving, either the eccentric nut is not tight enough or the wheel is worn out and should be replaced. 
   * Grab the X/Z carriage and \(gently\) try to twist it front/back and left/right: there should not be any slop.
@@ -194,7 +194,7 @@ A little bit of blue Loctite on the eccentric nuts helps keeping them tight for 
 
 While the HDZ is mostly maintenance free, once in a while it does not hurt to double-check its less visible/accessible parts. Specifically, you may want to check that the two screws holding the lower part of the ballscrew are still tight, using the long allen key which comes with the Shapeoko:
 
-![](.gitbook/assets/shapeoko/hdz_maint_3375x500.jpeg)
+![](.gitbook/assets/hdz_maint_3375x500.jpeg)
 
-![](.gitbook/assets/shapeoko/hdz_maint_375x500.jpeg)
+![](.gitbook/assets/hdz_maint_375x500.jpeg)
 

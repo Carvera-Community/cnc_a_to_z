@@ -35,18 +35,18 @@ There are many ways to learn and use a CNC Machine, but the typical experience f
 
 * order the machine \(after reading a lot of good things about it\) 
 * while waiting for delivery, get familiar with CNC concepts: 
-  * this is the intent of the first sections \([CNC workflow](shapeoko/workflow.md), [Anatomy of a CNC Machine](shapeoko/anatomy-of-a-shapeoko.md), [CAD, CAM, and G-code](shapeoko/cad-cam-tools.md), [Cutters & collets](shapeoko/cutters.md), [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md), [Toolpaths](shapeoko/toolpath-basics.md), [Workholding](shapeoko/workholding.md)\). They go in _way_ more detail than is strictly necessary to get started, so if it feels overwhelming just skip the details and get cutting.
-  * the [Cutters & collets](shapeoko/cutters.md) section includes a few indications as to what starter set of endmills and collets could be suitable for you to purchase, depending on the projects you have in mind. 
+  * this is the intent of the first sections \([CNC workflow](workflow.md), [Anatomy of a CNC Machine](anatomy-of-a-shapeoko.md), [CAD, CAM, and G-code](cad-cam-tools.md), [Cutters & collets](cutters.md), [Feeds & speeds](feeds-and-speeds-basics.md), [Toolpaths](toolpath-basics.md), [Workholding](workholding.md)\). They go in _way_ more detail than is strictly necessary to get started, so if it feels overwhelming just skip the details and get cutting.
+  * the [Cutters & collets](cutters.md) section includes a few indications as to what starter set of endmills and collets could be suitable for you to purchase, depending on the projects you have in mind. 
 * receive and unpack the machine, and run the included example projects. Oh the joy of these first few hours! 
-* run your first cuts in wood or MDF \(this is covered in the [Running a job](shapeoko/first-cuts.md) section\). 
+* run your first cuts in wood or MDF \(this is covered in the [Running a job](first-cuts.md) section\). 
 * realize that:
-  * CNC is messy, and that now is a good time to look into post job chip and dust collection. This is covered in the [Dust Collection](shapeoko/dust-collection.md) section.
-  * The geometry of cut pieces or finish quality is not quite right, and that it may be necessary to look into [Squaring, surfacing, tramming](shapeoko/squaring.md) the machine, and possibly [Dimensional accuracy](shapeoko/x-y-z-calibration.md).
-* get confused about required feeds and speeds for that particular case you want to use but for which no recommendation exists: hopefully re-reading the [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md) section should help.
-* try cutting plastics or metal \(see [Usecases: cutting plastics](shapeoko/cutting-plastics.md) , [Usecases: cutting metal](shapeoko/cutting-metal.md)\)
-* at some point, witness the machine misbehave, blame the hardware or the software, start investigating, and \(often\) end up concluding that you messed up somewhere in the workflow. The [Troubleshooting & maintenance](shapeoko/maintenance.md) section has a few pointers, after that the user community and Makera's support team are your best bet.
-* somewhere along this path, outgrow your CNC manufacturer's CAM and consider moving to more advanced [CAD, CAM, G-code](shapeoko/cad-cam-tools.md) tools.
-* after a while, begin to feel an itch for [Enhancements](shapeoko/upgrading-the-machine.md) to the machine.
+  * CNC is messy, and that now is a good time to look into post job chip and dust collection. This is covered in the [Dust Collection](dust-collection.md) section.
+  * The geometry of cut pieces or finish quality is not quite right, and that it may be necessary to look into [Squaring, surfacing, tramming](squaring.md) the machine, and possibly [Dimensional accuracy](x-y-z-calibration.md).
+* get confused about required feeds and speeds for that particular case you want to use but for which no recommendation exists: hopefully re-reading the [Feeds & speeds](feeds-and-speeds-basics.md) section should help.
+* try cutting plastics or metal \(see [Usecases: cutting plastics](cutting-plastics.md) , [Usecases: cutting metal](cutting-metal.md)\)
+* at some point, witness the machine misbehave, blame the hardware or the software, start investigating, and \(often\) end up concluding that you messed up somewhere in the workflow. The [Troubleshooting & maintenance](maintenance.md) section has a few pointers, after that the user community and Makera's support team are your best bet.
+* somewhere along this path, outgrow your CNC manufacturer's CAM and consider moving to more advanced [CAD, CAM, G-code](cad-cam-tools.md) tools.
+* after a while, begin to feel an itch for [Enhancements](upgrading-the-machine.md) to the machine.
 
 ## **Feedback & credits**
 

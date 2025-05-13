@@ -2,7 +2,7 @@
 
 First things first, the **workflow** of a typical CNC job: 
 
-![](.gitbook/assets/shapeoko/page_5_800.png)
+![](.gitbook/assets/page_5_800.png)
 
 Everything starts in a **CAD** \(Computer-Aided Design\) program: this is where you will create the 2D or 3D objects to be machined. CAD software packages are usually able to import 2D and 3D features from a variety of file formats, and the most common/useful ones for CNC are "vector" formats. 
 
@@ -27,7 +27,7 @@ If needed, a G-code viewer can be used to double-check the generated toolpaths, 
 Finally the instructions from the generated G-code files must be sent to the machine to produce the required movements of the router to cut through the material. This requires a **G-code sender**, that goes through the G-code file line by line and sends the instructions to the machine, or more precisely to the machine's **controller**, via a communication link \(USB on the Shapeoko\).
 
 {% hint style="info" %}
- **Carbide Motion** is Carbide 3D's G-code sender for the Shapeoko, but alternative senders can also be used, they are covered in the [CAD, CAM, and G-code](shapeoko/cad-cam-tools.md#g-code-senders) section.
+ **Carbide Motion** is Carbide 3D's G-code sender for the Shapeoko, but alternative senders can also be used, they are covered in the [CAD, CAM, and G-code](cad-cam-tools.md#g-code-senders) section.
 {% endhint %}
 
 The controller executes a piece of software that interprets incoming instructions, and translates them into specific movements of the X, Y, and Z motors. On the Shapeoko, this software is "**GRBL**", \(pronounced "Gerbil"\), an open source motion control software \(see [https://github.com/gnea/grbl](https://github.com/gnea/grbl)\)
@@ -50,7 +50,7 @@ The next question is, where is the origin? On a CNC like the Shapeoko, there is 
 
 The **ZERO** point \(X0,Y0,Z0\) is the point in space against which all movements described in a G-code file will be referenced.
 
-![](.gitbook/assets/shapeoko/page_8_800_redo.png)
+![](.gitbook/assets/page_8_800_redo.png)
 
 This point is usually referenced somewhere on the stock material \(_e.g._, a corner or the center of the top face\), but it could be set anywhere in the 3D workspace. The G-code for a given job will use this reference, and perform movements **relative** to this local origin.
 

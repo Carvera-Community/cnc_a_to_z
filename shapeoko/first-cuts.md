@@ -30,7 +30,7 @@ Whenever the machine is turned off, it is possible to move it manually, with jus
 That "clonk" sound when the machine is turned on is just the stepper motors locking in place, nothing to be concerned about.
 {% endhint %}
 
-The reason for homing was introduced in the [CNC workflow](shapeoko/workflow.md) section: the only way the Shapeoko can tell for sure where it is, is when it contacts the three limit switches. Without homing, each time the machine is power cycled it would be unable to go back to any specific coordinates with precision.
+The reason for homing was introduced in the [CNC workflow](workflow.md) section: the only way the Shapeoko can tell for sure where it is, is when it contacts the three limit switches. Without homing, each time the machine is power cycled it would be unable to go back to any specific coordinates with precision.
 
 You could argue that homing is useless since you are going to manually jog to the Zero point and set it to be the reference anyway. For a job that can be done in a single run / with a single tool, that could work. But the power of homing is that it will allow returning with great precision to the Zero point defined last \(which happens to be stored in the non-volatile memory of the controller by the GRBL software\). 
 
@@ -42,17 +42,17 @@ The notable exception is 2-sided jobs: depending on the precision of your limit 
 
 ## Setting & checking RPM
 
-Unless you have installed a spindle or a PID controller \(see [HW upgrades](shapeoko/upgrading-the-machine.md#automatic-router-rpm-control)\), you need to adjust RPM manually using the knob on the trim router. The [Anatomy of a Shapeoko](shapeoko/anatomy-of-a-shapeoko.md#trim-router) section has a reminder about the mapping between knob values and RPMs, but the actual RPM can be slightly different than advertised, and on my router the knob did not even have a reference point on the casing, so I added a visual cue with a marker to at least have a repeatable setting:
+Unless you have installed a spindle or a PID controller \(see [HW upgrades](upgrading-the-machine.md#automatic-router-rpm-control)\), you need to adjust RPM manually using the knob on the trim router. The [Anatomy of a Shapeoko](anatomy-of-a-shapeoko.md#trim-router) section has a reminder about the mapping between knob values and RPMs, but the actual RPM can be slightly different than advertised, and on my router the knob did not even have a reference point on the casing, so I added a visual cue with a marker to at least have a repeatable setting:
 
-![](.gitbook/assets/shapeoko/rpm_knob.png)
+![](.gitbook/assets/rpm_knob.png)
 
 But it's not easy to interpolate between knob settings to use intermediate RPM values, so I found it much easier to buy a laser tachometer \(about 20$\), turn the router on, and adjust the knob to get the desired value:
 
-![](.gitbook/assets/shapeoko/tachometer_measurement.png)
+![](.gitbook/assets/tachometer_measurement.png)
 
 All it takes is a small patch of white/reflective tape on the collet nut:
 
-![](.gitbook/assets/shapeoko/tachometer_reflector.png)
+![](.gitbook/assets/tachometer_reflector.png)
 
 ## Zeroing strategies
 
@@ -60,15 +60,15 @@ The next step before cutting is to set the zeros. You will probably have noticed
 
 In VCarve this is called setting the "Z Zero position" to "Material Surface" or "Machine Bed":
 
-![](.gitbook/assets/shapeoko/vcarve_zeroing_options.png)
+![](.gitbook/assets/vcarve_zeroing_options.png)
 
 In Carbide Create, this is selected using the "Top/Bottom" drop-down list 
 
-![](.gitbook/assets/shapeoko/cc_zeroing_options.png)
+![](.gitbook/assets/cc_zeroing_options.png)
 
 Consider this example where one would want to cut a rectangular pocket on the top of a square piece of stock: 
 
-![](.gitbook/assets/shapeoko/page_178a_800.png)
+![](.gitbook/assets/page_178a_800.png)
 
 In many cases, one will want to zero on the **top** of the stock, just because:
 
@@ -76,24 +76,24 @@ In many cases, one will want to zero on the **top** of the stock, just because:
 * as long as the pocket is not going all the way through the stock, there is no need to know or care about the stock thickness.
 * it is often convenient to use the top left corner as a reference point for not only Z0, but also X0 and Y0, and using a corner probe makes that very easy \(more on this below\).
 
-![](.gitbook/assets/shapeoko/page_178b_800fixed.png)
+![](.gitbook/assets/page_178b_800fixed.png)
 
 Previewing the g-code for that pocket toolpath would look something like below, with the tool starting from the upper left corner of the stock, retracting, moving to the pocketing area, and cutting to lower and lower depths:
 
-![](.gitbook/assets/shapeoko/gcode_view_zero_on_top.png)
+![](.gitbook/assets/gcode_view_zero_on_top.png)
 
 But sometimes, it is convenient to declare Z0 on the **bottom** of the stock / surface of the wasteboard:
 
 * when the stock is not quite the desired thickness, and ones wants to surface it, down to a precise final height.
 * when milling a piece that requires multiple tools, and there may not be an flat surface _left_ after the first toolpath has been run \(think of a roughing pass that would mill the top surface away and leave only a curved surface\)
 
-![](.gitbook/assets/shapeoko/page_179_800.png)
+![](.gitbook/assets/page_179_800.png)
 
 Now there is a catch with zeroing on stock bottom: the CAM software NEEDS to know the stock thickness \(H in the picture above\), such that it can offset Z0 by that, and end up in the same situation as is setting Z0 on top.
 
 The G-code for the SAME pocket toolpath as above, regenerated after declaring Z0 being on stock bottom in the CAM, would look like this:
 
-![](.gitbook/assets/shapeoko/gcode_view_zero_on_bottom.png)
+![](.gitbook/assets/gcode_view_zero_on_bottom.png)
 
 The tool would start from stock bottom, then rise all the way to the top surface \(plus the retract height\) and start cutting as it would if Z0 had been declared to be on top of the stock.
 
@@ -118,11 +118,11 @@ The main limitation of manual zeroing is that you need to eyeball the X/Y locati
 
 Enter the touch probe, to automate the zeroing process. The Shapeoko controller has a dedicated "Probe" input, that works like the other limit switches. It detects whether there is continuity between the two pins:
 
-![](.gitbook/assets/shapeoko/page_182a_800_redo.png)
+![](.gitbook/assets/page_182a_800_redo.png)
 
 For zeroing Z only, a probe can boil down to a piece of \(conductive\) metal sheet \(of known thickness\), for zeroing X, Y and Z, it needs to be 3-dimensional but the principle is the same. X/Y/Z probes typically have a recessed face on the bottom side, so that they can be placed on a corner of the stock top surface:
 
-![](.gitbook/assets/shapeoko/page_182b_800.png)
+![](.gitbook/assets/page_182b_800.png)
 
 {% hint style="info" %}
 Probes come in two types: passive and active. Passive is just what was described above, i.e. a glorified metal cube. Active probes have internal electronics to support features such as an embedded test LED that lights up when contact is made, which is useful for checking that the probe chain is working fine before initiating the probing cycle
@@ -130,19 +130,19 @@ Probes come in two types: passive and active. Passive is just what was described
 
 The probing goes like this:
 
-![](.gitbook/assets/shapeoko/page_183_800.png)
+![](.gitbook/assets/page_183_800.png)
 
 * the probing cycle starts with the tool raised above the probe. It could be anywhere above, but there is usually a target area above which to \(coarsely\) position the tool, to facilitate the rest of the sequence.
 * the tool is lowered along Z, until it makes contact. When it does, the software can just read the current Z and subtract the thickness of the probe \(PZ in the sketch above\) to get Z0. This Z touch off sequence can be repeated to average out values and improve precision
 * if the probing cycle is configured to also probe X and Y, it retracts the tool and proceeds to move away from probe, lowers the tool and then comes back towards it until it detects contact, then repeats that operation for the other side. It can then determine X0 and Y0 by reading the X or Y values at contact, add PX or PY, and add half the \(preconfigured\) diameter D of the tool itself. 
 
-![](.gitbook/assets/shapeoko/job_probe_on_corner.png)
+![](.gitbook/assets/job_probe_on_corner.png)
 
 If the stock shape does not have a straight corner, the probe can also sit on top of the stock surface and be used for Z probing only \(the software will know that when Z probing only is selected, it should compensate for the total height of the probe, not just the PZ step\).
 
 One problem remains: the X0/Y0 computations depend on \(half the\) diameter of the tool, so the geometry of the tool must have been configured beforehand, and this manual operation is error prone. Also, the _actual_ precise diameter of the tool is often not quite the advertised value, so this will introduce a _slight_ error in X0/Y0, which will result in a shift between runs with different tools. One more probing trick can be useful: if the probe has a hole, one can lower the tool into the hole and then probe its sides: probe left and memorize current X value, then probe right and memory current X value: the average \(middle\) of these two values is at the X center of the hole. Repeating this operation by probing on the front/back side of the hole will locate the Y center of the hole. Since the location of the center of the hole is at a known distance from the inner corner of the probe, this gives X0 and Y0. Z-probing can then be done normally elsewhere on the top surface. The beauty of this method is that it is independent of the tool diameter! 
 
-![](.gitbook/assets/shapeoko/page_185_800.png)
+![](.gitbook/assets/page_185_800.png)
 
 {% hint style="info" %}
 _@neilferreri_ on the forum came up with a wonderful probing macro for CNCjs, that does just this, go check it out: [https://github.com/cncjs/CNCjs-Macros](https://github.com/cncjs/CNCjs-Macros)
@@ -185,7 +185,7 @@ There are basically two ways to manage this:
 
 2\) The semi-automated way
 
-* this approach requires one to have a [**tool length offset probe**](shapeoko/upgrading-the-machine.md#tool-length-offset-probe) installed on the machine.
+* this approach requires one to have a [**tool length offset probe**](upgrading-the-machine.md#tool-length-offset-probe) installed on the machine.
 * generate a **single G-code file** containing all toolpaths, for all tools.
 * Zero using the first tool, then run the G-code file: the machine will go and probe the length of that first tool, and will start cutting.
 * The G-code sender will know when a tool change is required \(by detecting the "M6" commands inserted in the G-code file by the CAD tool\), and it will pause the job. 

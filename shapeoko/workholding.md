@@ -16,7 +16,7 @@ Many projects require cutting all the way through the stock material, _e.g._ to 
 * even on a properly calibrated machine, it is not easy to cut _exactly_ down to stock bottom.
 * it is often not desirable anyway: the quality of the cut on the bottom of the piece can be poor if not overcutting \(_e.g._ small variations in depth/flatness would leave material here and there\).
 * mistakes in the CAM design/G-code, or mechanical issues, might cause the endmill to cut deeper than expected, it would be too bad to damage the machine baseboard.
-* the stock must lay on a surface that is flat and square to the machine's Z axis, and the simplest way to achieve this is to use the machine itself to surface its own base \(see [Squaring, surfacing, tramming](shapeoko/squaring.md)\), so it should be a replaceable part.
+* the stock must lay on a surface that is flat and square to the machine's Z axis, and the simplest way to achieve this is to use the machine itself to surface its own base \(see [Squaring, surfacing, tramming](squaring.md)\), so it should be a replaceable part.
 
 It is _possible_ to use the Shapeoko's MDF baseboard itself as a wasteboard, but who wants to be replacing the baseboard of their machine? \(considering it would mean disassembling it, reassembling with a fresh baseboard, and then squaring everything again\). It is much more convenient to use a **supplementary** wasteboard bolted onto the baseboard.
 
@@ -38,17 +38,17 @@ For the thickness of the wasteboard, make sure to include margin for the recesse
 
 A very common way to hold the stock onto the wasteboard is to use top **clamps**, secured to the wasteboard using bolts:
 
-![](.gitbook/assets/shapeoko/pcb_raw_copperclad.png)
+![](.gitbook/assets/pcb_raw_copperclad.png)
 
 which requires to have threaded holes available in various places across the work area:
 
-![](.gitbook/assets/shapeoko/fresh_wasteboard.png)
+![](.gitbook/assets/fresh_wasteboard.png)
 
 There are many different ways to make a "sea of holes" wasteboard. A popular option is to use the Shapeoko itself to drill the holes into either its own baseboard or the supplementary wasteboard, and then manually install **threaded inserts** in the holes.
 
 Another very popular option to attach clamps is to use **T-tracks** inserted at regular intervals between "strips" of wasteboard area:
 
-![](.gitbook/assets/shapeoko/setup_t_tracks.png)
+![](.gitbook/assets/setup_t_tracks.png)
 
 The main drawback in both cases is that the area where the clamps are holding the stock is not accessible to the cutter, and one should carefully design toolpaths such that there is no risk of collision between the cutter \(or the dust shoe around it\) and the clamps. The usual mitigations are:
 
@@ -56,7 +56,7 @@ The main drawback in both cases is that the area where the clamps are holding th
 * using **low-profile clamps**: this addresses the issue of collision with the dust shoe itself, as the clamps can slide under the bristles of the dust shoe. The risk of collision with the tool itself is still to be managed though. 
 * using side clamps/**eccentric clamps** as illustrated below: they push the stock from the side into a corner block, and free up the top surface of the stock completely. 
 
-![](.gitbook/assets/shapeoko/page_143_800.png)
+![](.gitbook/assets/page_143_800.png)
 
 ## Tabs, Onion skin
 
@@ -64,7 +64,7 @@ Since clamps only hold the stock by its sides, contour/profile cuts leave a midd
 
 One solution is to use **tabs** in the design, most CAM tools support this:
 
-![](.gitbook/assets/shapeoko/workholding_tabs.png)
+![](.gitbook/assets/workholding_tabs.png)
 
 The tabs will hold the piece during the last passes of the cut, however they will have to be removed/cleaned-up manually afterwards, which can turn out to be time consuming and may leave clean-up marks on the workpiece.
 
@@ -86,33 +86,33 @@ Double-sided tape can be useful in combination with other methods: for example, 
 
 Another very popular workholding method is surprisingly simple, and surprisingly efficient. It uses painter's masking tape, and cyanoacrylate \(CA\) glue:
 
-![](.gitbook/assets/shapeoko/tape_and_glue_0.png)
+![](.gitbook/assets/tape_and_glue_0.png)
 
 Apply masking tape on the back side of the stock, using several stripes if needed to have a large area covered. I use the roller shown in the picture above to make sure the tape is pushed firmly against the stock and everything is nice and flat \(make sure there are no wrinkles/bubbles\):
 
-![](.gitbook/assets/shapeoko/tape_and_glue_1.png)
+![](.gitbook/assets/tape_and_glue_1.png)
 
 Apply masking tape on the top of the wasteboard where the stock will go, to match the tape under the stock. Again, the roller is useful to make things stick.
 
-![](.gitbook/assets/shapeoko/tape_and_glue_2.png)
+![](.gitbook/assets/tape_and_glue_2.png)
 
 Now apply a zig-zag of CA glue on the tape under the stock,
 
-![](.gitbook/assets/shapeoko/tape_and_glue_3.png)
+![](.gitbook/assets/tape_and_glue_3.png)
 
 Flip it, quickly position it, then push down firmly across the whole surface for a few seconds \(some use glue accelerator, but this is typically not necessary\):
 
-![](.gitbook/assets/shapeoko/tape_and_glue_4.png)
+![](.gitbook/assets/tape_and_glue_4.png)
 
 You may want to cut the extra pieces of tape, just to prevent any possible mishap where they would get in the way of the cutter \(think about the case of doing a final contour at full depth around this stock...\)
 
-![](.gitbook/assets/shapeoko/tape_and_glue_5.png)
+![](.gitbook/assets/tape_and_glue_5.png)
 
 At this point, the stock should be held very tightly: apply lateral force and make sure it does not budge. Push harder if you need to convince yourself that this will hold. If done correctly, the amount of _lateral_ force needed to break the hold is HUGE, way beyond what the machine can produce. Enjoy cutting the piece without any obstruction of the top and sides of the stock ! After getting a taste of this method, you might not want to go back to using clamps ever again.
 
 Once the cut is done, insert a flat tool under the piece to exert an **upward** force:
 
-![](.gitbook/assets/shapeoko/tape_and_glue_6.png)
+![](.gitbook/assets/tape_and_glue_6.png)
 
 It may take a few \(gentle\) tries working on each corner/edge in turn to pry the piece loose, but it usually comes off very easily.
 
@@ -130,5 +130,5 @@ A vise is typically used when cutting high-precision metal parts, since it provi
 
 The max width of the vise jaw is the main limitation, and its height may be a concern, especially on a machine like the Shapeoko that has a somewhat limited Z travel. A low-profile vise, that can be installed and removed from the machine depending on the job at hand, is a good option to have:
 
-![](.gitbook/assets/shapeoko/workholding_vice.png)
+![](.gitbook/assets/workholding_vice.png)
 

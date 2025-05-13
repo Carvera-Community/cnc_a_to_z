@@ -10,7 +10,7 @@ The whole "feeds & speeds" topic is arguably the most daunting part of learning 
 
 When first starting CNC, selecting adequate cutting parameters feels a little bit like this:
 
-![](.gitbook/assets/shapeoko/page_63_800.png)
+![](.gitbook/assets/page_63_800.png)
 
 Using proper feeds and speeds and depth/width of cut values is important to :
 
@@ -36,13 +36,13 @@ In so-called "conventional" milling, the direction of the endmill movement is su
 
 It starts out very thin, and gradually increases in thickness. The maximum thickness \(noted "C" below\) happens when the cutting edge exits the material. It is typically called the "feed per tooth" or "chipload per tooth", or usually just "**chipload**", and this is the cornerstone of feeds and speeds.
 
-![](.gitbook/assets/shapeoko/page_65_800.png)
+![](.gitbook/assets/page_65_800.png)
 
 ## Climb milling
 
 "Climb" milling is when the direction of the endmill movement is such that the cutting edges bite from the outside to the inside of the material. In that situation, a cutting edge first bites a large chunk of material \(blue position\), and as the endmill rotates and moves to the right at feedrate F, the cut gets thinner, until the tooth has nothing left to cut \(purple position\). The resulting chip \(in green\) has a similar shape to that in conventional milling, and again the max thickness of the chip is the chipload.
 
-![](.gitbook/assets/shapeoko/page_66_800.png)
+![](.gitbook/assets/page_66_800.png)
 
 ## Chiploads
 
@@ -56,7 +56,7 @@ So this is a Goldilocks situation: the chipload must be high enough to avoid rub
 
 Each flute contributes in turn to removing material during one revolution of an endmill. If we sketched N successive bites that the endmill takes into the material, it would look something like this:
 
-![](.gitbook/assets/shapeoko/page_67_800.png)
+![](.gitbook/assets/page_67_800.png)
 
 If the endmill has _N_ flutes, one revolution will cut _N_ chips, i.e. a length of _N_ × _chipload_ of material. Since the endmill revolves at _RPM_ turns per minute, in one minute a length of _N_ × _chipload_ × _RPM_ will have been cut. And the distance being cut per minute is exactly the definition of feedrate, therefore _Feedrate_ = _N_ × _RPM_ × _Chipload_, which also means:
 
@@ -168,7 +168,7 @@ The following is an \(arguable\) table I am using as a personal reference, which
 To keep this guideline table simple, I chose to only divide woods into "soft" and "hard" categories, and this labeling is not the correct definition either \(which relates to whether the tree _seeds_ have a hard or soft shell\). I mean it in the "wood hardness" way, and there is a useful **Janka** scale that measures that. @Hooby on the forum consolidated a nice list of Janka hardness values for many types of wood, which I include here for reference. The Janka threshold for "hard" vs. "soft" is highly debatable, but a value of 1000 seems reasonable to steer the chipload selection.
 {% endhint %}
 
-{% file src=".gitbook/assets/shapeoko/wood\_hardness-for-cnc.xlsx" caption="@Hooby\'s Janka wood hardness list" %}
+{% file src=".gitbook/assets/wood\_hardness-for-cnc.xlsx" caption="@Hooby\'s Janka wood hardness list" %}
 
 Now we have to take a little detour and talk about stepover, because it impacts the _effective_ chipload.
 
@@ -178,13 +178,13 @@ Now we have to take a little detour and talk about stepover, because it impacts 
 
 In the example below, the stepover S is 50% of the endmill diameter:
 
-![](.gitbook/assets/shapeoko/page_71_800.png)
+![](.gitbook/assets/page_71_800.png)
 
 The larger the stepover, the larger the force on the endmill. Cutting passes with a small stepover are better for surface finish quality, while passes with large stepover obviously reduce overall cutting time since fewer passes are required to cut a given amount of material. And then **depth** of cut will also come in the picture \(more on this later\).
 
 As a side note, for ball endmills, stepover value influences surface finish quite a lot. Consider the following sketch of a side view showing multiple passes:
 
-![](.gitbook/assets/shapeoko/page_72_800.png)
+![](.gitbook/assets/page_72_800.png)
 
 Due to the geometry of the endmill tip, scallops of residual material will be left at regular intervals on the bottom surface. These will be more or less visible depending on how well the material can hold small details \(a 20% to 33% stepover should be small enough for wood, while it could need to be lowered down to 10% stepover for metal\)
 
@@ -192,17 +192,17 @@ Due to the geometry of the endmill tip, scallops of residual material will be le
 
 The chipload values discussed earlier assumed that the stepover is at least 50% of the endmill diameter:
 
-![](.gitbook/assets/shapeoko/page_73_800.png)
+![](.gitbook/assets/page_73_800.png)
 
 Now consider what happens if the stepover is lower than 50% of the diameter, say 20% only:
 
-![](.gitbook/assets/shapeoko/page_74_800.png)
+![](.gitbook/assets/page_74_800.png)
 
 For the same RPM and feedrate, the _actual_ chip is smaller, its maximum thickness is smaller than targeted, so there is again a risk of rubbing, or at least of sub-optimal heat removal.
 
 The solution is to artificially target a higher chipload value \(all other parameters staying the same\), such that the actual size of the chip is increased to approximately what it _would_ have been if the cutter were engaged at 50%:
 
-![](.gitbook/assets/shapeoko/page_75_800.png)
+![](.gitbook/assets/page_75_800.png)
 
 
 
@@ -213,7 +213,7 @@ Chipload(adjusted) = \frac{Diameter}{2 × \sqrt{(Diameter × Stepover) - Stepove
 $$
 
 {% hint style="info" %}
-For basic toolpaths, the stepover is often in the 40% to 50% range, and then you can just ignore chip thinning altogether. Where chip thinning really matters is for adaptive clearing toolpaths, that typically use small stepovers \(more on this in the [Toolpaths](shapeoko/toolpath-basics.md#adaptive-clearing-toolpaths) section\)
+For basic toolpaths, the stepover is often in the 40% to 50% range, and then you can just ignore chip thinning altogether. Where chip thinning really matters is for adaptive clearing toolpaths, that typically use small stepovers \(more on this in the [Toolpaths](toolpath-basics.md#adaptive-clearing-toolpaths) section\)
 {% endhint %}
 
 {% hint style="info" %}
@@ -275,7 +275,7 @@ Some usecases call for the use of an O-flute endmills: this will probably mean r
 
 Multiple cutting passes at depth of cut _d_ will be required to cut down to a total pocket depth of _D_:
 
-![](.gitbook/assets/shapeoko/page_79_800_redo.png)
+![](.gitbook/assets/page_79_800_redo.png)
 
 DOC is just as important as feeds & speeds to achieve a good cut, yet surprisingly there is much less information about how to determine its value, compared to the abundance of feeds and speeds charts.
 
@@ -290,9 +290,9 @@ There is a strong dependency between DOC and WOC: since cutting forces increase 
 
 These two situations are illustrated below:
 
-![](.gitbook/assets/shapeoko/page_80_800_redo.png)
+![](.gitbook/assets/page_80_800_redo.png)
 
-The _**small WOC, high DOC**_ approach is much preferable, as it spreads the heat and tool wear much more evenly along the length of the endmill. However, it requires specific toolpath strategies \(_e.g._ to initially clear material down to the required depth, to allow small WOC to be used for the rest of the cut\), this is covered in the [Toolpaths](shapeoko/toolpath-basics.md) section. This is a very popular approach when cutting metals on the Shapeoko, but its benefits apply to other materials too.
+The _**small WOC, high DOC**_ approach is much preferable, as it spreads the heat and tool wear much more evenly along the length of the endmill. However, it requires specific toolpath strategies \(_e.g._ to initially clear material down to the required depth, to allow small WOC to be used for the rest of the cut\), this is covered in the [Toolpaths](toolpath-basics.md) section. This is a very popular approach when cutting metals on the Shapeoko, but its benefits apply to other materials too.
 
 The _**large WOC, small DOC**_ approach only ever uses the tip of the endmill, so that part will wear out quickly while the rest of the endmill length of cut remains unused. But it is still a very common approach for pocketing and profile cuts on the Shapeoko, and it has simplicity going for it.
 
@@ -327,7 +327,7 @@ For WOC:
 * possibly even less for the hardest materials \(_e.g._, 4% for steel\)
 
 {% hint style="info" %}
-If you go for narrow and deep \(and you should!\), given the small WOC values you will definitely need to take chip thinning into account.  Also, check out **adaptive clearing** in the [Toolpaths](shapeoko/toolpath-basics.md) section, that goes hand in hand with high DOC and small WOC.
+If you go for narrow and deep \(and you should!\), given the small WOC values you will definitely need to take chip thinning into account.  Also, check out **adaptive clearing** in the [Toolpaths](toolpath-basics.md) section, that goes hand in hand with high DOC and small WOC.
 {% endhint %}
 
 The figures above provide a ballpark for DOC and WOC, taking into account two specific cases: slotting, and corners. 
@@ -338,15 +338,15 @@ Depending on the stepover, the portion ****of the endmill that will be engaged i
 
 For a 50% stepover, the TEA will be 90°:
 
-![](.gitbook/assets/shapeoko/page_83_800.png)
+![](.gitbook/assets/page_83_800.png)
 
 For a smaller stepover, say 25%, the TEA will be reduced \(in this case to 60°\):
 
-![](.gitbook/assets/shapeoko/page_84_800.png)
+![](.gitbook/assets/page_84_800.png)
 
 **Slotting** is a different story: half of the endmill is engaged at all times, so the TEA is 180°:
 
-![](.gitbook/assets/shapeoko/page_85_800.png)
+![](.gitbook/assets/page_85_800.png)
 
 The force on the endmill will be much higher than when cutting at 90° TEA, so the max achievable chipload/DOC combination for a given machine/endmill/material is lower. The recommended chipload/DOC values mentioned above include some margin to take this effect into account to some extent.
 
@@ -359,7 +359,7 @@ Bottomline: slotting is hard on the machine, so you may have to:
 * optimize chip evacuation by using an endmill with a lower number of flutes, and/or a good dust shoe or blast of air 
 
 {% hint style="info" %}
-Or, you can take a different approach and _avoid_ slotting altogether, by using smarter toolpaths. See adaptive clearing and pocketing in the [Toolpaths](shapeoko/toolpath-basics.md#adaptive-clearing-toolpaths) section!
+Or, you can take a different approach and _avoid_ slotting altogether, by using smarter toolpaths. See adaptive clearing and pocketing in the [Toolpaths](toolpath-basics.md#adaptive-clearing-toolpaths) section!
 {% endhint %}
 
 Not that you will ever need to use it, but for the math-inclined among you, here's the equation to compute TEA from stepover value:
@@ -374,11 +374,11 @@ While we are talking about TEA, let's take a look at what happens when cutting a
 
 Just before moving into the corner, the tool engagement angle is 90°:
 
-![](.gitbook/assets/shapeoko/page_87_800.png)
+![](.gitbook/assets/page_87_800.png)
 
 But _while_ cutting the corner, the TEA momentarily goes up to 180°:
 
-![](.gitbook/assets/shapeoko/page_88_800.png)
+![](.gitbook/assets/page_88_800.png)
 
 before going down to 90° again. So the machine sees a "spike" in the cutting resistance at each corner. Just like for slotting, this means that the feedrate and DOC cannot be as high as one would like, since they need to be dialed back a bit to manage corners.   
 
@@ -409,17 +409,17 @@ These numbers are for plunging straight down. If the toolpath uses some ramping 
 
 Endmills are not infinitely rigid, they tend to bend \(deflect\) when submitted to the cutting forces, and that deflection needs to be taken into account in the feeds and speeds. Here is a grossly exaggerated sketch of an endmill being subject to the cutting force:
 
-![](.gitbook/assets/shapeoko/page_90_800_redo.png)
+![](.gitbook/assets/page_90_800_redo.png)
 
 The amount of deflection depends on the endmill material \(carbide is more rigid than HSS\), diameter \(larger is stiffer\), stickout length, and of course the cutting forces that the endmill is subjected to, that depend on the chipload, DOC, WOC, and material.
 
 When using conventional milling, the force tends to be parallel to the stock:
 
-![](.gitbook/assets/shapeoko/page_91_800_redo.png)
+![](.gitbook/assets/page_91_800_redo.png)
 
 When using climb milling, the force tends to be perpendicular, i.e. push the endmill away from the material:
 
-![](.gitbook/assets/shapeoko/page_92_800_redo.png)
+![](.gitbook/assets/page_92_800_redo.png)
 
 Either way, too much deflection is bad:
 
@@ -438,7 +438,7 @@ The direction of the cut \(climb versus conventional milling\) pertains to the t
 * in climb milling, the router torque pushes in the same direction as the feedrate, while in conventional it fights against the feedrate, so the forces on the stepper motors are higher.
 * climb milling used to have a bad reputation for being dangerous to use on machines with a lot of backlash. While this was perfectly true on older manual mills, the point is moot on CNCs in general and the Shapeoko in particular.
 
-So when all is said and done, climb milling wins on almost every aspect except deflection. The [Toolpaths](shapeoko/toolpath-basics.md#roughing-vs-finishing-toolpaths) section will cover the notion of "roughing" versus "finishing" toolpaths, and that will then open the way for the best approach: using **climb for roughing, then conventional for finishing**. 
+So when all is said and done, climb milling wins on almost every aspect except deflection. The [Toolpaths](toolpath-basics.md#roughing-vs-finishing-toolpaths) section will cover the notion of "roughing" versus "finishing" toolpaths, and that will then open the way for the best approach: using **climb for roughing, then conventional for finishing**. 
 
 This way, climb and its many advantages is used for most of the cut, and the possible deflections happening during this roughing pass will be taken care of by the light conventional finishing pass \(where the drawbacks of conventional will be irrelevant, since this finishing pass puts such low efforts on the machine anyway, and chip evacuation is not a problem either\) 
 
@@ -474,7 +474,7 @@ Once you get this power value, you can compare it to your router's maximum outpu
 
 And finally, even if the cutting power is within the range of your router, there is still the matter of the **cutting force** that the Shapeoko has to put on the endmill to move it through the material: 
 
-![](.gitbook/assets/shapeoko/page_95_800.jpg)
+![](.gitbook/assets/page_95_800.jpg)
 
 In metric units, the torque is the force \(in Newton\) times the distance in meters \(in this case the radius of the endmill\), and power in Watts is torque times the angular velocity w, in radians per second. Since the cutter does RPM revolutions per minute and each of them is 2×Pi radians:
 
@@ -525,9 +525,9 @@ Whether or not you _need_ a feeds & speeds calculator is debatable: most people 
 
 A pretty neat feeds and speeds worksheet has been put together by @gmack on the Shapeoko forum \(which he derived from an original worksheet from the NYCCNC website\). I have attached a version here for convenience, but you may want to check if a more recent version is available on the forum.
 
-![](.gitbook/assets/shapeoko/gmack_worksheet.png)
+![](.gitbook/assets/gmack_worksheet.png)
 
-{% file src=".gitbook/assets/shapeoko/2019-08-11-speeds-and-feeds-workbook.xlsx" caption="gmack\'s advanced feeds and speeds worksheet" %}
+{% file src=".gitbook/assets/2019-08-11-speeds-and-feeds-workbook.xlsx" caption="gmack\'s advanced feeds and speeds worksheet" %}
 
 1. fill-in the **specs of your router** or spindle \(once\).
 2. fill-in the **specs of the selected endmill**, and the **target chipload value** you chose \(chip thinning will be taken into account automatically depending on WOC value\)
@@ -549,9 +549,9 @@ Once you determine good feeds and speeds and confirm that it is cutting correctl
 
 If you still feel overwhelmed or don't care about optimizing power, force and deflection, I derived a more basic version:  
 
-![](.gitbook/assets/shapeoko/basic_worksheet_screenshot.png)
+![](.gitbook/assets/basic_worksheet_screenshot.png)
 
-{% file src=".gitbook/assets/shapeoko/fs\_worksheet\_basics.xls" %}
+{% file src=".gitbook/assets/fs\_worksheet\_basics.xls" %}
 
 1. fill-in the **number of flutes** and **diameter** of your endmill
 2. pick a **target chipload** value from the guideline table on the right

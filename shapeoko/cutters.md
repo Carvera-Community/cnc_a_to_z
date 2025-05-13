@@ -19,7 +19,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
   * a long OAL provides better reach, at the expense of rigidity/deflection.
   * On the smallest diameter endmills, the cutting length is really short otherwise the tool would be extremely fragile and deflect too much
 * the **number of flutes** \(number of cutting teeth\)
-  * see [Feeds & speeds](shapeoko/feeds-and-speeds-basics.md) for the impact of the number of flutes.
+  * see [Feeds & speeds](feeds-and-speeds-basics.md) for the impact of the number of flutes.
   * fewer flutes are better for chip evacuation.
   * more flutes are better for stiffness and finish.
 * the **material** it is made of:
@@ -37,7 +37,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
 * the **direction** of rotation
   * in practice virtually all endmills are designed for a **clockwise** tool rotation \(as seen from above the cut\)
 
-![](.gitbook/assets/shapeoko/page_40_800_fixed.png)
+![](.gitbook/assets/page_40_800_fixed.png)
 
 ## Square endmills
 
@@ -49,87 +49,87 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
 
 Here's an example for a 3-flute, 1/4'', upcut square endmill \(codename "\#201" on Carbide 3D store\)
 
-![](.gitbook/assets/shapeoko/tools_3flute_025inch.png)
+![](.gitbook/assets/tools_3flute_025inch.png)
 
 It also comes in a version coated with zirconium nitride \(ZrN\) which minimizes the risk of sticking when cutting non-ferrous metals:
 
-![](.gitbook/assets/shapeoko/tools_3flute_025inch_zrn_coated.png)
+![](.gitbook/assets/tools_3flute_025inch_zrn_coated.png)
 
 Here's an example of a 1/4'' endmill with only 2 flutes:
 
-![](.gitbook/assets/shapeoko/tools_2flute_square_025inch.png)
+![](.gitbook/assets/tools_2flute_square_025inch.png)
 
 and here's a 1/4" one with a single flute \(a.k.a. "O-flute"\), that provides excellent chip evacuation:
 
-![](.gitbook/assets/shapeoko/tools_1flute_025inch.png)
+![](.gitbook/assets/tools_1flute_025inch.png)
 
 **Downcut** endmills have their helical flute\(s\) oriented the other way, as in this 1/4'' 1-flute downcut:
 
-![](.gitbook/assets/shapeoko/tools_1flute_downcut_025inch.png)
+![](.gitbook/assets/tools_1flute_downcut_025inch.png)
 
 Here's another downcut, 2-flute, 1/8'' endmill:
 
-![](.gitbook/assets/shapeoko/tools_2flute_downcut_0125inch.png)
+![](.gitbook/assets/tools_2flute_downcut_0125inch.png)
 
 And then there are the funny looking **compression** endmills, that start with an upcut section at the tip, and have a downcut section higher up the shaft, here's a 1/4'', 2-flute version:
 
-![](.gitbook/assets/shapeoko/tools_2flute_compression_025inch.png)
+![](.gitbook/assets/tools_2flute_compression_025inch.png)
 
 and a smaller 1/8'', 1-flute compression endmill:
 
-![](.gitbook/assets/shapeoko/tools_1flute_compression_0125inch.png)
+![](.gitbook/assets/tools_1flute_compression_0125inch.png)
 
 ## Corner radius endmills
 
 Square endmills have a weak point, and that's the sharp tip of each of their flutes. In demanding materials \(like metal\) this is likely to chip, so one can use **corner radius** \(a.k.a. "bullnose"\) endmills instead: they behave very similarly to square endmills, but are much less prone to chip at the tip, hence can be used at more aggressive settings. Notice in the two pics below, the rounded corners \(top: TiCN-coated, bottom: ceramic-coated\)
 
-![](.gitbook/assets/shapeoko/bullnose_closeup.jpeg)
+![](.gitbook/assets/bullnose_closeup.jpeg)
 
-![](.gitbook/assets/shapeoko/bullnose_closeup2.jpeg)
+![](.gitbook/assets/bullnose_closeup2.jpeg)
 
 ## Ballnose endmills
 
 Ballnose ****endmills are better suited for machining smooth 3D curves \(but are quite inefficient for machining flat pockets\), here's a 2-flute 1/4'' ballnose:
 
-![](.gitbook/assets/shapeoko/tools_2flute_ballnose_025inch.png)
+![](.gitbook/assets/tools_2flute_ballnose_025inch.png)
 
 Here's a 0.032'' ballnose:
 
-![](.gitbook/assets/shapeoko/tools_2flute_0032inch%20%281%29.png)
+![](.gitbook/assets/tools_2flute_0032inch%20%281%29.png)
 
 For carving fine 3D details, a **tapered** ballnose endmill can be very useful: the tip can be very small, but the tapered flutes make it much more robust than a straight endmill of the same tip diameter, so it can support much more aggressive feeds and speeds. Here's a tapered endmill with a 0.5mm \(0.02''\) ballnose tip:
 
-![](.gitbook/assets/shapeoko/tools_2flute_0_5mm_tapered.png)
+![](.gitbook/assets/tools_2flute_0_5mm_tapered.png)
 
 ## **V-bits**
 
-V-bits come with various angles, they are typically used to carve text or tiny grooves \(more on this in the [Toolpaths](shapeoko/toolpath-basics.md#v-carving-toolpaths) section\):
+V-bits come with various angles, they are typically used to carve text or tiny grooves \(more on this in the [Toolpaths](toolpath-basics.md#v-carving-toolpaths) section\):
 
-![](.gitbook/assets/shapeoko/tools_vbits.png)
+![](.gitbook/assets/tools_vbits.png)
 
 ## Surfacing bit
 
 They usually have a very large diameter, to be able to surface a wide area in one \(very shallow\) pass:
 
-![](.gitbook/assets/shapeoko/tools_surfacing_bit.png)
+![](.gitbook/assets/tools_surfacing_bit.png)
 
 ## Engraving bit
 
 Another specialized bit is used for ****engraving ****very small details, it's basically a very pointy one, and can be used for example to carve very narrow tracks on the top of a copper-clad PCB.
 
-![](.gitbook/assets/shapeoko/tools_pcb_engraving_bit.png)
+![](.gitbook/assets/tools_pcb_engraving_bit.png)
 
 ## Diamond drag bit
 
 The diamong drag bit has a tiny diamond on its tip, and is intended to be dragged across the surface of the material \(with the router TURNED OFF!\) to engrave a 2D pattern on the surface. The tip is usually spring-loaded, so that the tip is always in contact with the surface with a controlled pressure, while the bit moves around:
 
-![](.gitbook/assets/shapeoko/tools_diamond_drag_bit.png)
+![](.gitbook/assets/tools_diamond_drag_bit.png)
 
 ## Thread milling bit
 
 Special thread milling bits are used in conjunction with very specific spiral toolpaths, to thread the inside of a hole:
 
-![](.gitbook/assets/shapeoko/tools_thread_milling.png)
+![](.gitbook/assets/tools_thread_milling.png)
 
 And there are many more, but these should cover a large part of the usecases/projects.
 
@@ -137,7 +137,7 @@ And there are many more, but these should cover a large part of the usecases/pro
 
 There is not much too say about collets, other than "they come in various sizes and quality". Here's a sample set of collets for the Makita router:
 
-![](.gitbook/assets/shapeoko/collets.png)
+![](.gitbook/assets/collets.png)
 
 From left to right:
 
@@ -153,7 +153,7 @@ It is mandatory to use a collet size that matches the endmill shank diameter. Mi
 
 Typical router collet sizes are 4 mm, 6 mm, 8 mm, 1/8'', 3/16'', 1/4'', 3/8'', so the range of available sizes is limited, especially toward the larger shank diameters. Spindle users have access to specialized collets such as the “ER”-style which has become an industry standard, that are available in many more sizes:
 
-![](.gitbook/assets/shapeoko/er_collets.png)
+![](.gitbook/assets/er_collets.png)
 
 Using a **collet adapter/reducer** is generally not recommended as it tends to increase **runout**, but for most jobs it will still work fine.
 
@@ -163,7 +163,7 @@ Below is a short overview of what runout is, but overall this is not something n
 
 Ideally, the rotation axis of the router shaft \(in black\), the axis of the collet \(in blue\), and the axis of the endmill \(in green\) are perfectly aligned:
 
-![](.gitbook/assets/shapeoko/page_59_800_fixed.png)
+![](.gitbook/assets/page_59_800_fixed.png)
 
 But in practice, manufacturing tolerances are such that there are small imperfections at all levels:
 
@@ -173,13 +173,13 @@ But in practice, manufacturing tolerances are such that there are small imperfec
 
 The end effect is that the movement of the endmill's tip in the material is the combination of the rotation along its own axis and other unintended deviations. Here's a very \(very\) exagerated view of what happens when cutting a single slot with a lot of runout:
 
-![](.gitbook/assets/shapeoko/page_62___800.png)
+![](.gitbook/assets/page_62___800.png)
 
 The expected width of the slot is the endmill diameter, but the actual width of the slot \(effective cutting diameter\) is the sum of the endmill diameter and the amount of deviation \(runout\). This deviation can be characterized by the maximal displacement measured at a given position on the surface of the endmill as it rotates \(again, extremely exaggerated on the view below\):
 
-![](.gitbook/assets/shapeoko/page_61_800.png)
+![](.gitbook/assets/page_61_800.png)
 
-Refer to the runout section in [Dimensional accuracy](shapeoko/x-y-z-calibration.md#managing-runout) for details on how to measure runout, and correct it \(or at least take it into account\).
+Refer to the runout section in [Dimensional accuracy](x-y-z-calibration.md#managing-runout) for details on how to measure runout, and correct it \(or at least take it into account\).
 
 ## Endmills & collets starter set
 
