@@ -1,0 +1,21 @@
+# Table of contents
+
+* [Introduction](README.md)
+* [CNC workflow](carvera/workflow.md)
+* [Anatomy of a CNC Machine](carvera/anatomy-of-a-shapeoko.md)
+* [CAD, CAM, and G-code](carvera/cad-cam-tools.md)
+* [Cutters & collets](carvera/cutters.md)
+* [Feeds & speeds](carvera/feeds-and-speeds-basics.md)
+* [Toolpaths](carvera/toolpath-basics.md)
+* [Workholding](carvera/workholding.md)
+* [Shapeoko setup](carvera/dust-collection.md)
+* [Running a job](carvera/first-cuts.md)
+* [Squaring, surfacing, tramming](carvera/squaring.md)
+* [Dimensional accuracy](carvera/x-y-z-calibration.md)
+* [Usecases: cutting wood](carvera/cutting-wood.md)
+* [Usecases: cutting plastics](carvera/cutting-plastics.md)
+* [Usecases: cutting metal](carvera/cutting-metal.md)
+* [Troubleshooting & maintenance](carvera/maintenance.md)
+* [HW upgrades](carvera/upgrading-the-machine.md)
+* [Glossary](carvera/glossary.md)
+
