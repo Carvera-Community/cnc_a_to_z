@@ -1,4 +1,4 @@
-# CNC workflow
+# CNC Workflow
 
 First things first, the **workflow** of a typical CNC job:
 
@@ -70,4 +70,4 @@ When the machine is in an arbitrary position and is turned off, the next time it
 Due to the way the X/Y/Z axis are oriented, the Zero point in absolute machine coordinates will have negative values. But since everything will happen relative to the WCS anyway, you can just ignore this fact.
 {% endhint %}
 
-So the CAM tool doesn't know anything about the MCS but does know where it wants the cutter to move with respect to an arbitrary point defined in the CAM project. The CAM creates a G-Code file with instructions for movements within the WCS space. The WCS origin is set by the user using Carvera Controller before starting playback of a G-Code instruction file. The Carvera CNC machine interprets every G-code movement command, and applies it's knowledge of the WCS to MCS translation to move the spindle and bed to  the required places.
+Thus the CAM tool operates independently of the Machine Coordinate System (MCS), focusing solely on defining the cutter's movements relative to a reference point established within the CAM project. It generates a G-code file containing movement instructions in the context of the Work Coordinate System (WCS). Prior to executing the G-code file, the user sets the WCS origin using the Carvera Controller. Subsequently, the Carvera CNC machine interprets each G-code command and utilizes its internal mapping from the WCS to the MCS to accurately position the spindle and bed as required.
