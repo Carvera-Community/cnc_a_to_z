@@ -2,7 +2,7 @@
 
 First things first, the **workflow** of a typical CNC job:
 
-<img src=".gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src=".gitbook/assets/workflow.excalidraw.svg" alt="" class="gitbook-drawing">
 
 Everything starts in a **CAD** (Computer-Aided Design) program: this is where you will create the 2D or 3D objects to be machined. CAD software packages are usually able to import 2D and 3D features from a variety of file formats, and the most common/useful ones for CNC are "vector" or STEP formats.
 
@@ -48,7 +48,7 @@ The coordinate system is one of those things that can be a little confusing at f
 
 The next question is, where is the origin? On a CNC like the Carvera, there is no mechanical feedback telling the machine where it is positioned in space at any given time, so the only thing it can do is control X/Y/Z movements **relative** to a given starting point.
 
-The **ZERO or origin** point (X0,Y0,Z0) is the point in space against which all movements described in a G-code file will be referenced.
+The **ZERO** point (X0,Y0,Z0) is the point in space against which all movements described in a G-code file will be referenced.
 
 <figure><img src=".gitbook/assets/page_8_800_redo.png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@ This point is usually referenced somewhere on the stock material (_e.g._, a corn
 However, the machine also has a **Home** position, which is where it can go to reset its location: the Home position corresponds to somewhere where the machine will get a physical feedback that it has reached the position, and on the Carvera that's above the back top right corner, where **homing switches** on the X,Y, and Z axis happen to be triggered.
 
 {% hint style="info" %}
-Limit Switches are little mechanical micro switches at the ends of the different axis. They are triggered when the Spindle or Bed of the Machine hit them. This way the machine knows it cannot move any further.
+Limit Switches are little mechanical micro switches at the ends of the different axis. They are triggered when the Spindle or Bed of the Machine hit them. This way the machine controller knows it cannot move any further and should halt running any further G-code to prevent potential damage to the machine or the work piece.
 {% endhint %}
 
 **Homing** consists in telling the machine to move in the direction of positive X, positive Y and positive Z until it detects that each associated limit switch has triggered, and stop movement on the corresponding axis then. Once all three limits switches have been triggered, the machine is guaranteed to be in a known position (mechanically), i.e. Home. The machine tracks this location in it's memory as the Machine Coordinate System (MCS) based on the assumption that every movement command has been executed by the motors successfully.
