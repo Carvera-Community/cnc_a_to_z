@@ -60,11 +60,6 @@ Comments/corrections/contributions are most welcome, you can contact me on the [
 
 Shoutout to the whole community, the collective knowledge and experience accumulated over there is incredible. I tried to bring out _some_ of that know-how in this e-book, but it is also tainted by my own limited experience and habits, so any potential incorrect information/guidance is my bad.
 
-Special thanks to :
-
-* [**Fae Corrigan**](https://www.patreon.com/propsmonster) for her non-stop contributions to the community. Fae is near single handedly improving every aspect of the machine. Much of the [Enhancements](enhancements.md) section of this book is a Fae contribution.
-* **Joe Nava** for pushing the limits of the machine, breaking it, and show us how to put it back together. Joe's also contibuted the overwhelming majority of the speeds-n-feeds on the community spreadsheet.
-
 This e-book is released under the Creative Commons CC BY-NC-SA license (in plain English: do whatever you want with it except using it for commercial purposes, and if you modify & redistribute, give credit and keep the same license).
 
 ![](../shapeoko/.gitbook/assets/cc-by-nc-sa.png)
