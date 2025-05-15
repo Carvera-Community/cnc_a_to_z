@@ -1,9 +1,5 @@
 # Introduction
 
-{% hint style="warning" %}
-**NOTE** This book is a work in progress port of the _Shapeoko CNC A to Z guide_. Some links might not work correctly while the content is being developed.
-{% endhint %}
-
 The intent of this guide is to help new users of CNC machines learn enough about both the big picture and the underlying technical details, to feel at ease with the machine, the workflow, and CNC lingo in general.
 
 As fun as it is to go ahead and cut a first project following a tutorial (and you should), having a good understanding of how the machine works and what underlying CNC concepts are involved goes a long way to avoid frustration later, when things do not work out the way you expected (and sooner or later they will).
