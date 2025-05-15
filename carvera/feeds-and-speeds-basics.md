@@ -206,7 +206,7 @@ Unlike chiploads that NEED to be in a specific range to get good cuts, the situa
 
 ## Slotting
 
-Depending on the stepover, the portion ****of the endmill that will be engaged in the material, a.k.a. the Tool Engagement Angle \(**TEA**\), will be different:
+Depending on the stepover, the portion of the endmill that will be engaged in the material, a.k.a. the Tool Engagement Angle \(**TEA**\), will be different:
 
 For a 50% stepover, the TEA will be 90°:
 
