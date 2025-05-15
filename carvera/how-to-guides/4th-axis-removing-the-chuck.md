@@ -4,7 +4,7 @@ You can remove the chuck from the fourth axis to expose an M14-1 threaded headst
 
 {% stepper %}
 {% step %}
-Lock chuck rotation
+## Lock chuck rotation
 
 You will need a 3.175mm (1/8") ground pin to remove the chuck. Look into the hole on the side of the headstock and turn the chuck until you see an indent through the hole. Fully seat the ground pin into this hole, the headstock should no longer move.
 
