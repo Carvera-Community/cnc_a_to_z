@@ -334,7 +334,7 @@ The figures above provide a ballpark for DOC and WOC, taking into account two sp
 
 ## Slotting
 
-Depending on the stepover, the portion ****of the endmill that will be engaged in the material, a.k.a. the Tool Engagement Angle \(**TEA**\), will be different:
+Depending on the stepover, the portion of the endmill that will be engaged in the material, a.k.a. the **Tool Engagement Angle** \(**TEA**\), will be different:
 
 For a 50% stepover, the TEA will be 90°:
 
@@ -500,7 +500,7 @@ So all of this can be derived from the feedrate, WOC, DOC, endmill size, and mat
 
 A proposed workflow to determine a _reasonable starting point_ for feeds and speeds and DOCs on the Shapeoko for a given project that uses a specific **material** and **endmill,** is:
 
-* select a **target chipload** in the recommended chipload range ****for this material+endmill combination
+* select a **target chipload** in the recommended chipload range for this material+endmill combination
   * refer to my proposed guideline table, or roll your own. Aim for the low end of the range, to reduce cutting force.
 * determine **depth of cut** and **width of cut** \(stepover\) based on the machining style you want \(large WOC and small DOC, or large DOC and small WOC\).
 * if stepover is less than 50%, **adjust target chipload for chip thinning**.

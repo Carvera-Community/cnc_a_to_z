@@ -41,7 +41,7 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
 
 ## Square endmills
 
-**Square** endmills are ****the workhorses of CNC milling. They come in several variants:
+**Square** endmills are the workhorses of CNC milling. They come in several variants:
 
 * **upcut**: the direction of the flute spiral is such that it pulls chips away from the cutting surface, thus is quite efficient at evacuating chips. It will produce a nice finish at the bottom of pockets, but can produce tear out on the top edges in some materials.
 * **downcut**: it pushes chips downward when cutting, so is not efficient to evacuate them from the cutting area. It tends to do the opposite as an upcut, i.e. leaving produce a clean cut at the top edges of the cuts, but potential tear out at the bottom of pockets.
@@ -89,7 +89,7 @@ Square endmills have a weak point, and that's the sharp tip of each of their flu
 
 ## Ballnose endmills
 
-Ballnose ****endmills are better suited for machining smooth 3D curves \(but are quite inefficient for machining flat pockets\), here's a 2-flute 1/4'' ballnose:
+Ballnose endmills are better suited for machining smooth 3D curves \(but are quite inefficient for machining flat pockets\), here's a 2-flute 1/4'' ballnose:
 
 ![](.gitbook/assets/tools_2flute_ballnose_025inch.png)
 
@@ -115,7 +115,7 @@ They usually have a very large diameter, to be able to surface a wide area in on
 
 ## Engraving bit
 
-Another specialized bit is used for ****engraving ****very small details, it's basically a very pointy one, and can be used for example to carve very narrow tracks on the top of a copper-clad PCB.
+Another specialized bit is used for **engraving **very small details, it's basically a very pointy one, and can be used for example to carve very narrow tracks on the top of a copper-clad PCB.
 
 ![](.gitbook/assets/tools_pcb_engraving_bit.png)
 

@@ -67,7 +67,7 @@ Special thanks to :
 * **@i3oilermaker** for the v-carved inlay pics
 * **@gmack** for his excellent feeds and speeds worksheet
 * **@Hooby** for the nice Janka wood hardness database included in the worksheets
-* **@neilferreri** for his awesome ****CNCjs macros, Fusion360 post processor, and other goodness
+* **@neilferreri** for his awesome CNCjs macros, Fusion360 post processor, and other goodness
 * **@Microwave\_Monkey** for the belt change tip and associated pics
 * **@LiamN** for some of the maintenance tips and pictures.
 

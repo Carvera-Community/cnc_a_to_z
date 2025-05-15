@@ -4,7 +4,7 @@ Plastics are relatively easy to mill, but they are less forgiving than wood if f
 
 This boils down to two things:
 
-1\) ****Watch **the chipload:**
+1\) **Watch **the chipload:**
 
 To ensure heat removal, you should either cut lots of thin chips very quickly \(i.e. use high RPM, and associated high feedrate maintaining chipload above 0.001''\), or cut thicker chips at lower RPM/feedrate.
 

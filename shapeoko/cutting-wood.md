@@ -97,7 +97,7 @@ This is the beauty of v-carved inlays: the slope introduced by the use of a V-bi
 
 Now, cutting the **inlay** part itself requires a bit more caution: 
 
-* the very first thing to notice is that the artwork needs to be **flipped** in the ****left/right direction \(i.e. to apply a 180° rotation along the Y axis, and have the inlay part facing "up" for the v-carve toolpath\). Unless the v-carved feature is perfectly symmetrical, this is essential or the inlay will not fit. 
+* the very first thing to notice is that the artwork needs to be **flipped** in the left/right direction \(i.e. to apply a 180° rotation along the Y axis, and have the inlay part facing "up" for the v-carve toolpath\). Unless the v-carved feature is perfectly symmetrical, this is essential or the inlay will not fit. 
 * the second thing is that one needs to cut the inlay to be a bit thicker than strictly required, to allow for thickness errors and to leave some space between the base and the top of the inlay for cutting the excess material after assembly. This corresponds to the extra "**cutout depth**" on the figure below.
 * finally, it is often convenient to add a solid **base underneath the inlay** part\(s\), especially when the artwork is such that many individual inlay pieces will be cut: the base will hold them all together during assembly.  
 
