@@ -45,7 +45,7 @@ Some implications of the design may not be immediately apparent:
 
 ### Control Board
 
-Both the original Carvera and Carver Air use the same control board. This uses a 32-bit ARM Cortex-M3 microcontroller called the NXP LPC1768 and runs a firmware based on [Smoothieware v1](https://github.com/Smoothieware/Smoothieware).
+Both the original Carvera and Carver Air use very similar control boards and as a result the same firmware files, the firmware is written with switches to change config/functionality based which board is detected. The major differences in the board are the absence of vacuum and air assist headers on the Air board. The board uses a 32-bit ARM Cortex-M3 microcontroller called the NXP LPC1768 and runs a firmware based on [Smoothieware v1](https://github.com/Smoothieware/Smoothieware).
 
 ### Power Supply
 
