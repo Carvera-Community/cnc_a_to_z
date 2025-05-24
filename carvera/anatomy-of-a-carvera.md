@@ -155,7 +155,7 @@ So overall, the motors can be controlled with a precision of 200 × 8 = 1600 mic
 Interestingly, stepper motors use more power when doing nothing (_i.e._, holding a position) than when moving. This is why they tend to get warm when the machine is on but idle. This is not a problem in itself, the motors are designed to support high temperatures but you might as well turn the machine off if it is going to stay idle for a long time, if only to save power.
 {% endhint %}
 
-It is the job of the **controller** to send commands to the stepper drivers (which in turn will generate the right current waveforms on the motor phases), to achieve the desired movements of the machine.
+It is the job of the **controller (Control Board)** to send commands to the stepper drivers (which in turn will generate the right current waveforms on the motor phases), to achieve the desired movements of the machine.
 {% endtab %}
 {% endtabs %}
 
@@ -190,7 +190,7 @@ It is the job of the **controller** to send commands to the stepper drivers (whi
 {% endtab %}
 {% endtabs %}
 
-### Laser Engraver
+## Laser Engraver
 
 {% tabs %}
 {% tab title="Carvera" %}
