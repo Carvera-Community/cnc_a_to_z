@@ -66,6 +66,8 @@ Both the original Carvera and Carver Air use very similar control boards and as 
 | Power                 | Value                             |
 | --------------------- | --------------------------------- |
 | Supported Mains Input | 100-120VAC / 200-240VAC @ 50/60Hz |
+| PSU                   | 450w w/ 12v output                |
+| PSU Model             | Mean well LRS-450-24              |
 
 
 {% endtab %}
