@@ -35,6 +35,12 @@ It's easy to be overwhelmed at first by the variety of cutters and their charact
 * a large shank is better for reducing tool deflection.
 * the choice of shank diameter is constrained by the available collets. The more shank diameters you have the more collet swaps you will have to do.
 
+### Shank Collar
+
+* The Carvera machines ship with plastic shank collars that are used by the automatic tool changer. On the Air / Z1 they only help set the depth in collet.&#x20;
+* On the Carvera the "ideal" amount of the shank in the collet is 12.5mm and this is what the bit collar tool installs to. You can go deeper or shallower, but you want to have at least 2\*cutter shank diameter inside the collet and you do not want to have the top of the bit pressed all the way up against where it stops at the top.
+* You can forgo the shank collars if you follow these rules, however, on the Carvera C1 you will have to do a manual tool change to install the bit into the machine and remove it from the spindle
+
 ### Shoulder Length / Diameter
 
 * on some endmills there is part of the endmill between the where the cutting flutes end and the shank diameter begins.&#x20;
