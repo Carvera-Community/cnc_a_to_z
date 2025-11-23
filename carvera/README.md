@@ -63,7 +63,7 @@ Special thanks to :
 
 This e-book is released under the Creative Commons CC BY-NC-SA license (in plain English: do whatever you want with it except using it for commercial purposes, and if you modify & redistribute, give credit and keep the same license).
 
-![](../shapeoko/.gitbook/assets/cc-by-nc-sa.png)
+![](.gitbook/assets/cc-by-nc-sa.png)
 
 ## Legal disclaimer
 
