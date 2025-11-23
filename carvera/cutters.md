@@ -1,8 +1,8 @@
 # Cutters
 
-It's easy to be overwhelmed at first by the variety of cutters and their characteristics. Roughly, an endmill is characterized by:
+<figure><img src=".gitbook/assets/cutterGeometery.png" alt=""><figcaption></figcaption></figure>
 
-![](.gitbook/assets/page_40_800_fixed.png)
+It's easy to be overwhelmed at first by the variety of cutters and their characteristics. Roughly, an endmill is characterized by:
 
 ### Tool Cutting Diameter
 
